@@ -29,13 +29,6 @@ namespace _65465456456
             blockusuario.Visibility = Visibility.Hidden;
         }
 
-        private void email_usuario_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(email_usuario.Text))
-            {
-                blockusuario.Visibility = Visibility.Visible;
-            }
-        }
 
         private void Senhadigitar_GotFocus(object sender, RoutedEventArgs e)
         {
