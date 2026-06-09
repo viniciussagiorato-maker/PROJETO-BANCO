@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1280">
     <Grid>
-        <Frame Name="Mainframe" Source="Paginaloginsimples"/>
+        <Frame Name="Mainframe" NavigationUIVisibility="Hidden" Source="Paginaloginsimples"/>
 
     </Grid>
 </Window>

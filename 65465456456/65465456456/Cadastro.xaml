@@ -26,39 +26,47 @@
 
 
 
-            <TextBox x:Name="email_usuario" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="226" Height="28" Canvas.Left="527" Canvas.Top="237" Padding="35,0,0,0"
-          HorizontalAlignment="Left"/>
+            <TextBox Tag="{Binding ElementName=blockusuario}" x:Name="email_usuario" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="226" Height="28" Canvas.Left="527" Canvas.Top="237" Padding="35,5,0,0"
+          HorizontalAlignment="Left" LostFocus="geral_LostFocus" GotFocus="geral_GotFocus"/>
 
-            <Image Source="C:\Users\VINICIUSDASILVASAGIO\Desktop\aleatorio2\testone\65465456456\emaillogo.png" Height="22" Width="22" Canvas.Left="537" Canvas.Top="240" RenderTransformOrigin="1.848,0.574" />
+            <Image Source="C:\Users\VINICIUSDASILVASAGIO\Desktop\PROJETO ALEATORIO\PROJETO-BANCO\65465456456\emaillogo.png" Height="22" Width="22" Canvas.Left="527" Canvas.Top="240" RenderTransformOrigin="1.848,0.574" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <TextBlock x:Name="blockusuario" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Email/Usuario" Opacity="0.5" FontSize="14" VerticalAlignment="Top"
-               IsHitTestVisible="False" TextAlignment="Center" Canvas.Left="564" Canvas.Top="243" />
+               IsHitTestVisible="False" TextAlignment="Center" Canvas.Left="554" Canvas.Top="242" />
 
-
-            <PasswordBox x:Name="senhadigitar" Width="226" Height="28" Canvas.Left="527" Canvas.Top="378" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="35,0,0,0" />
-            <Image Source="C:\Users\VINICIUSDASILVASAGIO\Desktop\aleatorio2\testone\65465456456\cadeadofechado.png" Canvas.Left="537" Canvas.Top="381" Height="23" Width="22" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" >
+            <PasswordBox Tag="{Binding ElementName=senhablock}" x:Name="senhadigitar" Width="226" Height="28" Canvas.Left="527" Canvas.Top="378" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="35,5,0,0" LostFocus="geral_LostFocus" GotFocus="geral_GotFocus" />
+            <Image Source="C:\Users\VINICIUSDASILVASAGIO\Desktop\PROJETO ALEATORIO\PROJETO-BANCO\65465456456\cadeadofechado.png" Canvas.Left="527" Canvas.Top="380" Height="24" Width="22" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="1,0.391" >
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleX="-1"/>
                         <SkewTransform/>
                         <RotateTransform/>
-                        <TranslateTransform/>
+                        <TranslateTransform X="-22"/>
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
+
             <TextBlock x:Name="senhablock" TextWrapping="Wrap" Opacity="0.5" FontSize="14"
-                    IsHitTestVisible="False" TextAlignment="Center" Canvas.Left="558" Canvas.Top="383" HorizontalAlignment="Left" VerticalAlignment="Center" Width="51"><Run Language="pt-br" Text="Senha"/></TextBlock>
+                    IsHitTestVisible="False" TextAlignment="Center" Canvas.Left="549" Canvas.Top="383" HorizontalAlignment="Left" VerticalAlignment="Center" Width="51"><Run Language="pt-br" Text="Senha"/></TextBlock>
 
 
-            <TextBox x:Name="nomedigitar" Canvas.Left="527" TextWrapping="Wrap" Canvas.Top="284" Width="226" Height="28"/>
-            <Image Source="C:\Users\VINICIUSDASILVASAGIO\Desktop\aleatorio2\testone\65465456456\logo cadastro.png" Height="368" Width="514" Canvas.Left="-23" Canvas.Top="176"/>
-            <TextBlock x:Name="nomeblock" TextWrapping="Wrap" Opacity="0.5" FontSize="14"
-                IsHitTestVisible="False" TextAlignment="Center" Canvas.Left="564" Canvas.Top="289" HorizontalAlignment="Left" VerticalAlignment="Center" ><Run Language="pt-br" Text="Nome"/></TextBlock>
-            <TextBox x:Name="CPF" Canvas.Left="527" TextWrapping="Wrap" Canvas.Top="332" Width="226" Height="28" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <TextBox Tag="{Binding ElementName=nomeblock}" x:Name="nomedigitar" Canvas.Left="527" TextWrapping="Wrap" Canvas.Top="284" Width="226" Height="28" LostFocus="geral_LostFocus" GotFocus="geral_GotFocus" Padding="35,5,0,0"/>
+            <Image Source="C:\Users\VINICIUSDASILVASAGIO\Desktop\PROJETO ALEATORIO\PROJETO-BANCO\65465456456\logo cadastro.png" Height="368" Width="514" Canvas.Left="-23" Canvas.Top="176"/>
+            <TextBlock Tag="idnome" x:Name="nomeblock" TextWrapping="Wrap" Opacity="0.5" FontSize="14"
+                IsHitTestVisible="False" TextAlignment="Center" Canvas.Left="554" Canvas.Top="289" HorizontalAlignment="Left" VerticalAlignment="Center" ><Run Language="pt-br" Text="Nome"/></TextBlock>
+
+
+            <TextBox Tag="{Binding ElementName=CPFBLOCK}" x:Name="CPF" Canvas.Left="527" TextWrapping="Wrap" Canvas.Top="332" Width="226" Height="28" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="35,5,0,0" LostFocus="geral_LostFocus" GotFocus="geral_GotFocus"/>
             <TextBlock x:Name="CPFBLOCK" TextWrapping="Wrap" Opacity="0.5" FontSize="14"
-                IsHitTestVisible="False" TextAlignment="Center" Canvas.Left="564" Canvas.Top="337" HorizontalAlignment="Left" VerticalAlignment="Top" ><Run Language="pt-br" Text="CPF"/></TextBlock>
-            <PasswordBox x:Name="senhadigitar_Copiar" Width="226" Height="28" Canvas.Left="527" Canvas.Top="426" Padding="35,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                IsHitTestVisible="False" TextAlignment="Center" Canvas.Left="554" Canvas.Top="337" HorizontalAlignment="Left" VerticalAlignment="Center" ><Run Language="pt-br" Text="CPF"/></TextBlock>
+            
+            
+            <Image Source="C:\Users\VINICIUSDASILVASAGIO\Desktop\PROJETO ALEATORIO\PROJETO-BANCO\65465456456\IMAGECPF.png" Height="24" Width="22" Canvas.Left="527" Canvas.Top="334" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <PasswordBox Tag="{Binding ElementName=resenhablock}" x:Name="senhadigitar_Copiar" Width="226" Height="28" Canvas.Left="527" Canvas.Top="426" Padding="35,5,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" LostFocus="geral_LostFocus" GotFocus="geral_GotFocus"/>
             <TextBlock x:Name="resenhablock" TextWrapping="Wrap" Opacity="0.5" FontSize="14"
-                IsHitTestVisible="False" TextAlignment="Center" Canvas.Left="564" Canvas.Top="431" Width="90" HorizontalAlignment="Left" VerticalAlignment="Center"><Run Language="pt-br" Text="Repita a senha"/></TextBlock>
+                IsHitTestVisible="False" TextAlignment="Center" Canvas.Left="554" Canvas.Top="431" Width="90" HorizontalAlignment="Left" VerticalAlignment="Center"><Run Language="pt-br" Text="Repita a senha"/></TextBlock>
+            
+            
+            <Image Source="C:\Users\VINICIUSDASILVASAGIO\Desktop\PROJETO ALEATORIO\PROJETO-BANCO\65465456456\iconenome.png" Canvas.Left="527" Canvas.Top="287" Height="22" Width="22" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="1,0.391"/>
             <Image Source="C:\Users\VINICIUSDASILVASAGIO\Desktop\aleatorio2\testone\65465456456\cadeadofechado.png" Canvas.Left="537" Canvas.Top="428" Height="24" Width="22" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top" >
                 <Image.RenderTransform>
                     <TransformGroup>
@@ -69,6 +77,22 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
+            <Image Source="C:\Users\VINICIUSDASILVASAGIO\Desktop\PROJETO ALEATORIO\PROJETO-BANCO\65465456456\cadeadofechado.png" Canvas.Left="527" Canvas.Top="428" Height="24" Width="22" RenderTransformOrigin="1,0.391" HorizontalAlignment="Center" VerticalAlignment="Top" >
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="-22"/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+
+            <Button x:Name="cadastrar" Content="Cadastrar" Canvas.Left="599" Canvas.Top="476" Height="34" Width="82" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Click="cadastrar_Click" >
+                <Button.Background>
+                    <ImageBrush ImageSource="/botaocadastro.jpg"/>
+                </Button.Background>
+            </Button>
 
         </Canvas>
     </Grid>

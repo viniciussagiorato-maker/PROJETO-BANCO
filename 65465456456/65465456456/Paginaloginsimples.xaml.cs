@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace _65465456456
 {
     /// <summary>
@@ -24,9 +25,17 @@ namespace _65465456456
             InitializeComponent();
         }
 
-        private void email_usuario_GotFocus(object sender, RoutedEventArgs e)
+        private void emailusuario_GotFocus(object sender, RoutedEventArgs e)
         {
             blockusuario.Visibility = Visibility.Hidden;
+        }
+
+        private void emailusuario_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(email_usuario.Text))
+            {
+                blockusuario.Visibility = Visibility.Visible;
+            }
         }
 
 
@@ -80,7 +89,7 @@ namespace _65465456456
 
                         MessageBox.Show("Bem-vindo " + nome);
 
-                        //NavigationService.Navigate(new Home());
+                        NavigationService.Navigate(new home());
                     }
                     else
                     {
@@ -100,5 +109,7 @@ namespace _65465456456
             NavigationService.Navigate(new Cadastro());
 
         }
+
+      
     }
 }

@@ -14,6 +14,7 @@
     <None Remove="botaocadastro.jpg" />
     <None Remove="fundo escola.png" />
     <None Remove="fundocadastro.png" />
+    <None Remove="Fundohome.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,6 +27,7 @@
     <Resource Include="botaocadastro.jpg" />
     <Resource Include="fundo escola.png" />
     <Resource Include="fundocadastro.png" />
+    <Resource Include="Fundohome.png" />
   </ItemGroup>
 
 </Project>
