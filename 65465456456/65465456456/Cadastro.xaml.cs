@@ -112,7 +112,7 @@ namespace _65465456456
 
                     if (linhasAfetadas > 0)
                     {
-                        MessageBox.Show("Aluno cadastrado com sucesso!");
+                        MessageBox.Show("Usuario cadastrado com sucesso!");
                         NavigationService.Navigate(new Paginaloginsimples());
                     }
                 }

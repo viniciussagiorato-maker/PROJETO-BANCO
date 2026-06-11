@@ -1,26 +1,64 @@
 ﻿<Page x:Class="_65465456456.home"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:_65465456456"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="home">
-
+      Title="Home"
+      Background="#EEF3FB">
     <Grid>
 
-        <Canvas>
-            <Canvas.Background>
-                <ImageBrush ImageSource="/Fundohome.png"/>
-            </Canvas.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="240"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
+        <!-- Menu -->
+        <Border Grid.Column="0" Background="#0A4BDE">
 
+            <DockPanel>
 
+                <StackPanel Margin="15">
 
+                    <TextBlock
+                               FontSize="24"
+                               FontWeight="Bold"
+                               Foreground="White"
+                               Margin="10,20"><Run Language="pt-br" Text="Menu"/></TextBlock>
 
+                    <Button x:Name="btninicio" Content="🏠  Início"
+                            Style="{StaticResource MenuButtonStyle}"
+                            Background="#2D68E8" FontSize="14" Click="btninicio_Click"/>
 
-        </Canvas>
+                    <Button x:Name="btnalunos" Content="👨‍🎓  Alunos"
+                            Style="{StaticResource MenuButtonStyle}" FontSize="14" Click="btnalunos_Click"/>
 
+                    <Button x:Name="btnprofessores" Content="👨‍🏫  Professores"
+                            Style="{StaticResource MenuButtonStyle}" FontSize="14"/>
+
+                    <Button x:Name="btnturmas" Content="📚  Turmas"
+                            Style="{StaticResource MenuButtonStyle}" FontSize="14"/>
+
+                    <Button Content="📝  Notas"
+                            Style="{StaticResource MenuButtonStyle}" FontSize="14"/>
+
+                    <Button Content="📅  Agenda"
+                            Style="{StaticResource MenuButtonStyle}" FontSize="14"/>
+
+                    <Button Content="💰  Financeiro"
+                            Style="{StaticResource MenuButtonStyle}" FontSize="14"/>
+
+                    <Button Content="⚙  Configurações"
+                            Style="{StaticResource MenuButtonStyle}" FontSize="14"/>
+
+                </StackPanel>
+
+            </DockPanel>
+
+        </Border>
+
+        <!-- Conteúdo -->
+
+        <ContentControl x:Name="AreaConteudo" Grid.Column="1" Grid.ColumnSpan="2"/>
     </Grid>
+
+
+
 </Page>

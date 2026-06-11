@@ -8,8 +8,6 @@
       d:DesignHeight="720" d:DesignWidth="1280"
       Title="Cadastro">
 
-
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"/>

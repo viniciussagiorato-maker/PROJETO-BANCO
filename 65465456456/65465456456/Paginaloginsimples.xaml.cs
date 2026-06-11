@@ -87,7 +87,7 @@ namespace _65465456456
 
                         
 
-                        MessageBox.Show("Bem-vindo " + nome);
+                        MessageBox.Show("Bem-vindo ");
 
                         NavigationService.Navigate(new home());
                     }

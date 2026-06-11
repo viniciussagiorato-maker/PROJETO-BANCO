@@ -13,8 +13,14 @@
     <None Remove="botao.png" />
     <None Remove="botaocadastro.jpg" />
     <None Remove="fundo escola.png" />
+    <None Remove="fundo home 2.png" />
     <None Remove="fundocadastro.png" />
     <None Remove="Fundohome.png" />
+    <None Remove="logo escola home.png" />
+    <None Remove="logo escola home2.png" />
+    <None Remove="logohome agoravai.png" />
+    <None Remove="logohome.png" />
+    <None Remove="logohomesemfundo.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,8 +32,14 @@
     <Resource Include="botao.png" />
     <Resource Include="botaocadastro.jpg" />
     <Resource Include="fundo escola.png" />
+    <Resource Include="fundo home 2.png" />
     <Resource Include="fundocadastro.png" />
     <Resource Include="Fundohome.png" />
+    <Resource Include="logo escola home.png" />
+    <Resource Include="logo escola home2.png" />
+    <Resource Include="logohome agoravai.png" />
+    <Resource Include="logohome.png" />
+    <Resource Include="logohomesemfundo.png" />
   </ItemGroup>
 
 </Project>

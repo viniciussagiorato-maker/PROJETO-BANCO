@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _65465456456.Pages;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -21,6 +22,23 @@ namespace _65465456456
         public home()
         {
             InitializeComponent();
+            AreaConteudo.Content = new PageInicio();
+        }
+
+        private void btnalunos_Click(object sender, RoutedEventArgs e)
+        {
+
+            AreaConteudo.Content = new Pagealunos();
+
+
+        }
+
+        private void btninicio_Click(object sender, RoutedEventArgs e)
+        {
+
+            AreaConteudo.Content = new PageInicio();
+
+
         }
     }
 }
