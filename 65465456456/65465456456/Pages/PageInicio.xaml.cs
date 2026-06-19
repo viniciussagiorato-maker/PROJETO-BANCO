@@ -27,7 +27,8 @@ namespace _65465456456.Pages
 
 
 
-        private void menupequeno() {
+        private void menupequeno()
+        {
 
 
             string conexao = "Server=localhost;Database=escola;Uid=root;Pwd=123456789;";
@@ -38,24 +39,28 @@ namespace _65465456456.Pages
                 {
                     conexaoBanco.Open();
 
-                    string sql = "SELECT COUNT(*) FROM alunos";
+                    // Alunos
+                    MySqlCommand cmdAlunos = new MySqlCommand("SELECT COUNT(*) FROM alunos", conexaoBanco);
+                    blockalunos.Text = "Alunos: " + cmdAlunos.ExecuteScalar().ToString();
 
-                    MySqlCommand cmd = new MySqlCommand(sql, conexaoBanco);
+                    // Professores
+                    MySqlCommand cmdProf = new MySqlCommand("SELECT COUNT(*) FROM professores", conexaoBanco);
+                    blockprof.Text = "Professores: " + cmdProf.ExecuteScalar().ToString();
 
-                    int numAlunos = Convert.ToInt32(cmd.ExecuteScalar());
 
-                    blockalunos.Text = $"Alunos: {numAlunos}";
+
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Erro: " + ex.Message);
             }
-
-
-
-
-
         }
+
+
+
+
+
     }
 }
+

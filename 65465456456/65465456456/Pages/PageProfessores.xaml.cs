@@ -31,6 +31,8 @@ namespace _65465456456.Pages
             string cpf = procpf.Text;
             string email = proemail.Text;
             string senha = prosenha.Password;
+            string Forma = proformacao.Text;
+            string Disci = cmbDisciplina.SelectionBoxItem.ToString(); 
 
 
 
@@ -55,20 +57,21 @@ namespace _65465456456.Pages
 
                     string sql = @"
                 INSERT INTO professores
-                (Nome, CPF, Email, Senha)
+                (Nome_prof, CPF, Email, Senha, Formacao, Disciplina)
                 VALUES
-                (@Nome, @CPF, @Email, @Senha)";
+                (@Nome_prof, @CPF, @Email, @Senha, @Formacao, @Disciplina)";
 
                     MySqlCommand cmd = new MySqlCommand(sql, conexao);
 
-                    cmd.Parameters.AddWithValue("@Nome", nome);
+                    cmd.Parameters.AddWithValue("@Nome_prof", nome);
                     cmd.Parameters.AddWithValue("@CPF", cpf);
                     cmd.Parameters.AddWithValue("@Email", email);
                     cmd.Parameters.AddWithValue("@Senha", senha);
-
+                    cmd.Parameters.AddWithValue("@Formacao", Forma);
+                    cmd.Parameters.AddWithValue("@Disciplina", Disci);
                     cmd.ExecuteNonQuery();
 
-
+                    MessageBox.Show("Professor cadastrado com sucesso!");
                 }
 
                 catch (Exception ex)

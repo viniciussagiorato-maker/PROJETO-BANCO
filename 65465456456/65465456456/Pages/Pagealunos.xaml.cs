@@ -31,6 +31,8 @@ namespace _65465456456.Pages
             string cpf = aluCPF.Text;
             string email = aluemail.Text;
             string senha = alusenha.Password;
+            string turma = cmbTurma.SelectionBoxItem.ToString();
+            int idade = int.Parse(aluidade.Text);
 
 
 
@@ -56,9 +58,9 @@ namespace _65465456456.Pages
 
                     string sql = @"
                 INSERT INTO alunos
-                (Nome, CPF, Email, Senha)
+                (Nome, CPF, Email, Senha, Turma, idade)
                 VALUES
-                (@Nome, @CPF, @Email, @Senha)";
+                (@Nome, @CPF, @Email, @Senha, @Turma, @idade)";
 
                     MySqlCommand cmd = new MySqlCommand(sql, conexao);
 
@@ -66,10 +68,11 @@ namespace _65465456456.Pages
                     cmd.Parameters.AddWithValue("@CPF", cpf);
                     cmd.Parameters.AddWithValue("@Email", email);
                     cmd.Parameters.AddWithValue("@Senha", senha);
-
+                    cmd.Parameters.AddWithValue("@Turma", turma);
+                    cmd.Parameters.AddWithValue("@idade", idade);
                     cmd.ExecuteNonQuery();
 
-
+                    MessageBox.Show("Aluno cadastrado com sucesso!");
                 }
 
                 catch (Exception ex)
