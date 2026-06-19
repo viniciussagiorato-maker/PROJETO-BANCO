@@ -1,5 +1,4 @@
-﻿using _65465456456.Pages;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,22 +15,22 @@ using System.Windows.Shapes;
 namespace _65465456456.Pages
 {
     /// <summary>
-    /// Interação lógica para Pagealunos.xam
+    /// Interação lógica para PageProfessores.xam
     /// </summary>
-    public partial class Pagealunos : UserControl
+    public partial class PageProfessores : UserControl
     {
-        public Pagealunos()
+        public PageProfessores()
         {
             InitializeComponent();
         }
 
         private void btnCadastrar_Click(object sender, RoutedEventArgs e)
         {
-            string nome = alunome.Text;
-            string cpf = aluCPF.Text;
-            string email = aluemail.Text;
-            string senha = alusenha.Password;
 
+            string nome = pronome.Text;
+            string cpf = procpf.Text;
+            string email = proemail.Text;
+            string senha = prosenha.Password;
 
 
 
@@ -55,7 +54,7 @@ namespace _65465456456.Pages
                     conexao.Open();
 
                     string sql = @"
-                INSERT INTO alunos
+                INSERT INTO professores
                 (Nome, CPF, Email, Senha)
                 VALUES
                 (@Nome, @CPF, @Email, @Senha)";
@@ -76,6 +75,8 @@ namespace _65465456456.Pages
                 {
                     MessageBox.Show("Erro: " + ex.Message);
                 }
+
+
             }
         }
     }

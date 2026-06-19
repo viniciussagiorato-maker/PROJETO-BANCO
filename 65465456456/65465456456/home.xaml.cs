@@ -1,6 +1,7 @@
 ﻿using _65465456456.Pages;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Imaging.Effects;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -19,26 +20,90 @@ namespace _65465456456
     /// </summary>
     public partial class home : Page
     {
+        public List<Button> MenuButtons = new();
+        public List<Canvas> Menus = new();
         public home()
         {
             InitializeComponent();
             AreaConteudo.Content = new PageInicio();
-        }
 
-        private void btnalunos_Click(object sender, RoutedEventArgs e)
+            MenuButtons = new()
         {
-
-            AreaConteudo.Content = new Pagealunos();
-
-
+            btninicio,
+            btnalunos,
+            btnprofessores,
+            btnturmas,
+            btnnotas,
+            btnagenda,
+            btnfinanceiro,
+            btnconfig
+        };
+            RefreshMenus(btninicio);
         }
-
-        private void btninicio_Click(object sender, RoutedEventArgs e)
+        private void ShowMenu(object sender, RoutedEventArgs e)
         {
-
-            AreaConteudo.Content = new PageInicio();
-
-
+            if (sender is Button btn)
+            {
+                RefreshMenus(btn);
+            }
         }
+
+        private void RefreshMenus(Button curMenu)
+        {
+            foreach (var btn in MenuButtons)
+            {
+                btn.Background = btn == curMenu
+                ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#4178FF"))
+                : Brushes.Transparent;
+
+            }
+
+            OpeMenu(curMenu);
+        }
+        private void OpeMenu(Button btn)
+        {
+            foreach (var menu in Menus)
+            {
+                menu.Visibility = Visibility.Collapsed;
+            }
+
+            switch (btn.Name)
+            {
+                case "btninicio":
+                    AreaConteudo.Content = new PageInicio();
+                    break;
+
+                case "btnalunos":
+                    AreaConteudo.Content = new Pagealunos();
+                    break;
+
+                case "btnprofessores":
+                    AreaConteudo.Content = new PageProfessores();
+                    break;
+                case "btnconfig":
+                    AreaConteudo.Content = new Pageconfig();
+                    break;
+
+
+            }
+        }
+
+        private void FecharSistema(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+
+
+
+
+      
     }
 }
+
+
+
+
+
+
+

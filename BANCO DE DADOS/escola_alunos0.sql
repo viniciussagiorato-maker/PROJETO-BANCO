@@ -29,8 +29,11 @@ CREATE TABLE `alunos` (
   `Senha` varchar(50) DEFAULT NULL,
   `idade` int DEFAULT NULL,
   `CPF` varchar(15) DEFAULT NULL,
-  PRIMARY KEY (`Id_aluno`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `Turma` int DEFAULT NULL,
+  `Data_criacao` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`Id_aluno`),
+  UNIQUE KEY `Turma` (`Turma`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +42,7 @@ CREATE TABLE `alunos` (
 
 LOCK TABLES `alunos` WRITE;
 /*!40000 ALTER TABLE `alunos` DISABLE KEYS */;
-INSERT INTO `alunos` VALUES (1,NULL,'Viniciussagiorato@gmail.com','vitorioso11',NULL,NULL);
+INSERT INTO `alunos` VALUES (1,'Vinicius','vini2@gmail.com','123456789',NULL,'05176111047',NULL,'2026-06-18 21:06:23'),(2,'Vinicius','vini2@gmail.com','123456789',NULL,'05176111047',NULL,'2026-06-18 21:06:25'),(3,'Vinicius','vini2@gmail.com','123456789',NULL,'05176111047',NULL,'2026-06-18 21:06:26'),(4,'Vinicius','vini2@gmail.com','123456789',NULL,'05176111047',NULL,'2026-06-18 21:06:26'),(5,'Vinicius','vini2@gmail.com','123456789',NULL,'05176111047',NULL,'2026-06-18 21:06:26'),(6,'Vinicius','vini2@gmail.com','123456789',NULL,'05176111047',NULL,'2026-06-18 21:06:26'),(7,'luciano','lu@gmail.com','lulu',NULL,'55677765098',NULL,'2026-06-18 21:17:47');
 /*!40000 ALTER TABLE `alunos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-05-29 20:17:57
+-- Dump completed on 2026-06-19 20:02:37

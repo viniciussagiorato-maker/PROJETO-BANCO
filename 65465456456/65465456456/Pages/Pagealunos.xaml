@@ -6,128 +6,172 @@
              xmlns:local="clr-namespace:_65465456456.Pages"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280">
-    <Grid Background="#EEF3FB">
+    <Grid Background="#F3F6FB">
 
         <ScrollViewer VerticalScrollBarVisibility="Auto">
 
             <StackPanel Margin="25">
 
                 <!-- Cabeçalho -->
-                <Grid Margin="0,0,0,20">
+                <StackPanel Margin="0,0,0,20">
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="180"/>
-                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="🎓 Gestão de Alunos"
+                           FontSize="32"
+                           FontWeight="Bold"
+                           Foreground="#1D4ED8"/>
+
+                    <TextBlock Text="Cadastre e acompanhe todos os alunos da escola"
+                           FontSize="16"
+                           Foreground="#666"/>
+
+                </StackPanel>
+
+                <!-- Cadastro -->
+                <Border Style="{StaticResource CardStyle}"
+                    Padding="25"
+                    Margin="0,0,0,20">
 
                     <StackPanel>
-                        <TextBlock Text="👨‍🎓 Gestão de Alunos"
-                               FontSize="30"
+
+                        <TextBlock Text="Cadastro de Aluno"
+                               FontSize="22"
                                FontWeight="Bold"
-                               Foreground="#173B8F"/>
+                               Margin="0,0,0,20"/>
 
-                        <TextBlock Text="Cadastre e acompanhe todos os alunos da escola"
-                               Foreground="#666"
-                               FontSize="14"/>
+                        <Grid>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <!-- Nome -->
+                            <StackPanel Grid.Row="0" Grid.Column="0">
+                                <TextBlock Text="Nome"/>
+                                <TextBox x:Name="alunome"
+                                     Height="35"/>
+                            </StackPanel>
+
+                            <!-- Email -->
+                            <StackPanel Grid.Row="0" Grid.Column="2">
+                                <TextBlock Text="Email"/>
+                                <TextBox x:Name="aluemail"
+                                     Height="35"/>
+                            </StackPanel>
+
+                            <!-- Senha -->
+                            <StackPanel Grid.Row="1"
+                                    Grid.Column="0"
+                                    Margin="0,15,0,0">
+
+                                <TextBlock Text="Senha"/>
+
+                                <PasswordBox x:Name="alusenha"
+                                         Height="35"/>
+
+                            </StackPanel>
+
+                            <!-- CPF -->
+                            <StackPanel Grid.Row="1"
+                                    Grid.Column="2"
+                                    Margin="0,15,0,0">
+
+                                <TextBlock Text="CPF"/>
+
+                                <TextBox x:Name="aluCPF"
+                                     Height="35"/>
+
+                            </StackPanel>
+
+                            <!-- Turma -->
+                            <StackPanel Grid.Row="2"
+                                    Grid.Column="0"
+                                    Margin="0,15,0,0">
+
+                                <TextBlock x:Name="aluturma" Text="Turma"/>
+
+                                <ComboBox x:Name="cmbTurma" Height="35">
+                                    <ComboBoxItem Content="201"/>
+                                    <ComboBoxItem Content="202"/>
+                                    <ComboBoxItem Content="203"/>
+                                    <ComboBoxItem Content="301"/>
+                                    <ComboBoxItem Content="302"/>
+                                    <ComboBoxItem Content="303"/>
+
+
+
+                                </ComboBox>
+
+                            </StackPanel>
+
+                            <!-- Idade -->
+                            <StackPanel Grid.Row="2"
+                                    Grid.Column="2"
+                                    Margin="0,15,0,0">
+
+                                <TextBlock Text="Idade"/>
+
+                                <TextBox x:Name="aluidade"
+                                     Height="35"/>
+
+                            </StackPanel>
+
+                        </Grid>
+
+                        <!-- BOTÕES -->
+
+                        <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                Margin="0,25,0,0">
+
+                            <Button x:Name="btnCadastrar"
+                                Content="Cadastrar Aluno"
+                                Width="220"
+                                Height="45"
+                                Margin="0,0,10,0"
+                                Background="#1D4ED8"
+                                Foreground="White"
+                                FontWeight="Bold" Click="btnCadastrar_Click"
+                                />
+
+                            <Button x:Name="btnLimpar"
+                                Content="Limpar Tudo"
+                                Width="160"
+                                Height="45"
+                                Background="#E5E7EB"
+                                Foreground="#374151"
+                                FontWeight="Bold"
+                                />
+
+                        </StackPanel>
+
                     </StackPanel>
-
-                    <Button Grid.Column="1"
-                        Content="+ Novo Aluno"
-                        Height="45"
-                        Width="150"
-                        Background="#0A4BDE"
-                        Foreground="White"
-                        BorderThickness="0"
-                        FontWeight="Bold"
-                        Cursor="Hand"/>
-                </Grid>
-
-                <!-- Cards Resumo -->
-                <WrapPanel Margin="0,0,0,20">
-
-                    <Border Style="{StaticResource CardStyle}"
-                        Width="220"
-                        Height="120">
-
-                        <StackPanel VerticalAlignment="Center">
-                            <TextBlock Text="120"
-                                   FontSize="32"
-                                   FontWeight="Bold"
-                                   Foreground="#0A4BDE"
-                                   HorizontalAlignment="Center"/>
-
-                            <TextBlock Text="Alunos"
-                                   FontSize="16"
-                                   HorizontalAlignment="Center"/>
-                        </StackPanel>
-
-                    </Border>
-
-                    <Border Style="{StaticResource CardStyle}"
-                        Width="220"
-                        Height="120">
-
-                        <StackPanel VerticalAlignment="Center">
-                            <TextBlock Text="8"
-                                   FontSize="32"
-                                   FontWeight="Bold"
-                                   Foreground="#0A4BDE"
-                                   HorizontalAlignment="Center"/>
-
-                            <TextBlock Text="Turmas"
-                                   FontSize="16"
-                                   HorizontalAlignment="Center"/>
-                        </StackPanel>
-
-                    </Border>
-
-                    <Border Style="{StaticResource CardStyle}"
-                        Width="220"
-                        Height="120">
-
-                        <StackPanel VerticalAlignment="Center">
-                            <TextBlock Text="15"
-                                   FontSize="32"
-                                   FontWeight="Bold"
-                                   Foreground="#0A4BDE"
-                                   HorizontalAlignment="Center"/>
-
-                            <TextBlock Text="Novos este mês"
-                                   FontSize="16"
-                                   HorizontalAlignment="Center"/>
-                        </StackPanel>
-
-                    </Border>
-
-                </WrapPanel>
-
-                <!-- Pesquisa -->
-                <Border Style="{StaticResource CardStyle}">
-
-                    <Grid>
-
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="40"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <TextBlock Text="🔍"
-                               FontSize="18"
-                               VerticalAlignment="Center"/>
-
-                        <TextBox Grid.Column="1"
-                             BorderThickness="0"
-                             FontSize="15"
-                             VerticalContentAlignment="Center"
-                             Text="Pesquisar aluno..."/>
-
-                    </Grid>
 
                 </Border>
 
-                <!-- Lista de alunos -->
+                <!-- Pesquisa -->
+
                 <Border Style="{StaticResource CardStyle}"
-                    Margin="8,20,8,8">
+                    Margin="0,0,0,20">
+
+                    <TextBox x:Name="alupesquisar"
+                         Height="40"
+                         FontSize="15"
+                         VerticalContentAlignment="Center"
+                         Text="Pesquisar aluno..."/>
+
+                </Border>
+
+                <!-- Lista -->
+
+                <Border Style="{StaticResource CardStyle}">
 
                     <StackPanel>
 
@@ -137,35 +181,77 @@
                                Margin="0,0,0,15"/>
 
                         <DataGrid x:Name="dgAlunos"
+                              Height="280"
                               AutoGenerateColumns="False"
-                              Height="400"
                               CanUserAddRows="False">
 
                             <DataGrid.Columns>
 
-                                <DataGridTextColumn Header="Código"
-                                                Binding="{Binding Id}"
-                                                Width="80"/>
-
                                 <DataGridTextColumn Header="Nome"
-                                                Binding="{Binding Nome}"
-                                                Width="*"/>
+                                                Width="*"
+                                                Binding="{Binding Nome}"/>
+
+                                <DataGridTextColumn Header="Email"
+                                                Width="*"
+                                                Binding="{Binding Email}"/>
 
                                 <DataGridTextColumn Header="CPF"
-                                                Binding="{Binding CPF}"
-                                                Width="150"/>
+                                                Width="150"
+                                                Binding="{Binding CPF}"/>
 
                                 <DataGridTextColumn Header="Turma"
-                                                Binding="{Binding Turma}"
-                                                Width="120"/>
+                                                Width="120"
+                                                Binding="{Binding Turma}"/>
 
-                                <DataGridTextColumn Header="Telefone"
-                                                Binding="{Binding Telefone}"
-                                                Width="150"/>
+                                <DataGridTextColumn Header="Idade"
+                                                Width="80"
+                                                Binding="{Binding Idade}"/>
 
-                                <DataGridTextColumn Header="Status"
-                                                Binding="{Binding Status}"
-                                                Width="100"/>
+                                <!-- EDITAR -->
+
+                                <DataGridTemplateColumn Header="Editar"
+                                                    Width="80">
+
+                                    <DataGridTemplateColumn.CellTemplate>
+
+                                        <DataTemplate>
+
+                                            <Button Content="✏"
+                                                Width="35"
+                                                Height="30"
+                                                Background="#3B82F6"
+                                                Foreground="White"
+                                                FontWeight="Bold"
+                                                />
+
+                                        </DataTemplate>
+
+                                    </DataGridTemplateColumn.CellTemplate>
+
+                                </DataGridTemplateColumn>
+
+                                <!-- EXCLUIR -->
+
+                                <DataGridTemplateColumn Header="Excluir"
+                                                    Width="80">
+
+                                    <DataGridTemplateColumn.CellTemplate>
+
+                                        <DataTemplate>
+
+                                            <Button Content="🗑"
+                                                Width="35"
+                                                Height="30"
+                                                Background="#EF4444"
+                                                Foreground="White"
+                                                FontWeight="Bold"
+                                                />
+
+                                        </DataTemplate>
+
+                                    </DataGridTemplateColumn.CellTemplate>
+
+                                </DataGridTemplateColumn>
 
                             </DataGrid.Columns>
 

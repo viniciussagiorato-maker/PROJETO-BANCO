@@ -70,7 +70,7 @@ namespace _65465456456
                     conexao.Open();
 
                     string sql =
-                        "SELECT * FROM alunos " +
+                        "SELECT * FROM usuarios " +
                         "WHERE Email = @Email AND Senha = @Senha";
 
                     MySqlCommand cmd = new MySqlCommand(sql, conexao);

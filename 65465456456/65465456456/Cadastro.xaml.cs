@@ -96,8 +96,8 @@ namespace _65465456456
                     conexao.Open();
 
                     string sql = @"
-                INSERT INTO alunos
-                (Nome, CPF, Email, Senha)
+                INSERT INTO usuarios
+                (Nome_user, CPF, Email, Senha)
                 VALUES
                 (@Nome, @CPF, @Email, @Senha)";
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -21,6 +22,40 @@ namespace _65465456456.Pages
         public PageInicio()
         {
             InitializeComponent();
+            menupequeno();
+        }
+
+
+
+        private void menupequeno() {
+
+
+            string conexao = "Server=localhost;Database=escola;Uid=root;Pwd=123456789;";
+
+            try
+            {
+                using (MySqlConnection conexaoBanco = new MySqlConnection(conexao))
+                {
+                    conexaoBanco.Open();
+
+                    string sql = "SELECT COUNT(*) FROM alunos";
+
+                    MySqlCommand cmd = new MySqlCommand(sql, conexaoBanco);
+
+                    int numAlunos = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    blockalunos.Text = $"Alunos: {numAlunos}";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.Message);
+            }
+
+
+
+
+
         }
     }
 }

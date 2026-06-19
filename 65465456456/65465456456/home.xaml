@@ -25,28 +25,28 @@
 
                     <Button x:Name="btninicio" Content="🏠  Início"
                             Style="{StaticResource MenuButtonStyle}"
-                            Background="#2D68E8" FontSize="14" Click="btninicio_Click"/>
+                            Background="{x:Null}" FontSize="14" Click="ShowMenu"/>
 
                     <Button x:Name="btnalunos" Content="👨‍🎓  Alunos"
-                            Style="{StaticResource MenuButtonStyle}" FontSize="14" Click="btnalunos_Click"/>
+                            Style="{StaticResource MenuButtonStyle}" FontSize="14" Click="ShowMenu"/>
 
                     <Button x:Name="btnprofessores" Content="👨‍🏫  Professores"
-                            Style="{StaticResource MenuButtonStyle}" FontSize="14"/>
+                            Style="{StaticResource MenuButtonStyle}" FontSize="14" Click="ShowMenu"/>
 
                     <Button x:Name="btnturmas" Content="📚  Turmas"
-                            Style="{StaticResource MenuButtonStyle}" FontSize="14"/>
+                            Style="{StaticResource MenuButtonStyle}" FontSize="14" Click="ShowMenu"/>
 
-                    <Button Content="📝  Notas"
-                            Style="{StaticResource MenuButtonStyle}" FontSize="14"/>
+                    <Button x:Name="btnnotas" Content="📝  Notas"
+                            Style="{StaticResource MenuButtonStyle}" FontSize="14" Click="ShowMenu"/>
 
-                    <Button Content="📅  Agenda"
-                            Style="{StaticResource MenuButtonStyle}" FontSize="14"/>
+                    <Button x:Name="btnagenda" Content="📅  Agenda"
+                            Style="{StaticResource MenuButtonStyle}" FontSize="14" Click="ShowMenu"/>
 
-                    <Button Content="💰  Financeiro"
-                            Style="{StaticResource MenuButtonStyle}" FontSize="14"/>
+                    <Button x:Name="btnfinanceiro" Content="💰  Financeiro"
+                            Style="{StaticResource MenuButtonStyle}" FontSize="14" Click="ShowMenu"/>
 
-                    <Button Content="⚙  Configurações"
-                            Style="{StaticResource MenuButtonStyle}" FontSize="14"/>
+                    <Button x:Name="btnconfig" Content="⚙  Configurações"
+                            Style="{StaticResource MenuButtonStyle}" FontSize="14" Click="ShowMenu"/>
 
                 </StackPanel>
 
