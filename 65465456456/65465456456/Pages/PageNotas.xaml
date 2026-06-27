@@ -55,17 +55,17 @@
 
                     <StackPanel Grid.Row="1" Margin="8">
                         <TextBlock Text="Aluno"/>
-                        <ComboBox Height="40"/>
+                        <TextBox Height="40"/>
                     </StackPanel>
 
                     <StackPanel Grid.Row="1" Grid.Column="1" Margin="8">
                         <TextBlock Text="Turma"/>
-                        <ComboBox Height="40"/>
+                        <TextBox Height="40"/>
                     </StackPanel>
 
                     <StackPanel Grid.Row="1" Grid.Column="2" Margin="8">
                         <TextBlock Text="Bimestre"/>
-                        <ComboBox Height="40"/>
+                        <TextBox Height="40"/>
                     </StackPanel>
 
                     <StackPanel Grid.Row="2" Margin="8">
@@ -129,7 +129,9 @@
         <Border Grid.Row="2" Background="White" CornerRadius="18" Padding="20">
             <StackPanel>
                 <DockPanel Margin="0,0,0,15">
-                    <TextBox Width="641" Height="40"/>
+                    <Label Content="Buscar alunos" VerticalContentAlignment="Center"/>
+                    <TextBox Width="650" Height="40" HorizontalAlignment="Left"/>
+                    
                 </DockPanel>
 
                 <DataGrid Height="350" AutoGenerateColumns="False">
