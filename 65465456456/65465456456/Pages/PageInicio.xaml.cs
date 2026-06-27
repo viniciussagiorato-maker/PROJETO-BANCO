@@ -30,7 +30,7 @@ namespace _65465456456.Pages
         private void menupequeno()
         {
 
-
+            
             string conexao = "Server=localhost;Database=escola;Uid=root;Pwd=123456789;";
 
             try

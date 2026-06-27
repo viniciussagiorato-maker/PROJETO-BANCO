@@ -144,7 +144,7 @@
             Height="42"
             Background="#E5E7EB"
             Foreground="#374151"
-            FontWeight="Bold"
+            FontWeight="Bold" Click="btnLimpar_Click"
             />
 
                         </StackPanel>
@@ -162,7 +162,7 @@
              Height="40"
              FontSize="15"
              VerticalContentAlignment="Center"
-             Text="Pesquisar professor..."/>
+             Text="" TextChanged="pesquisaraluno"/>
 
                 </Border>
 
@@ -177,7 +177,7 @@
                    FontWeight="Bold"
                    Margin="0,0,0,15"/>
 
-                        <DataGrid x:Name="dgProfessores"
+                        <DataGrid x:Name="datagridpro"
                   Height="320"
                   AutoGenerateColumns="False"
                   CanUserAddRows="False">
@@ -186,11 +186,11 @@
 
                                 <DataGridTextColumn Header="Código"
                                     Width="80"
-                                    Binding="{Binding Id}"/>
+                                    Binding="{Binding Id_prof}"/>
 
                                 <DataGridTextColumn Header="Nome"
                                     Width="220"
-                                    Binding="{Binding Nome}"/>
+                                    Binding="{Binding Nome_prof}"/>
 
                                 <DataGridTextColumn Header="Email"
                                     Width="220"

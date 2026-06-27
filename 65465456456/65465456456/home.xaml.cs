@@ -83,6 +83,12 @@ namespace _65465456456
                 case "btnconfig":
                     AreaConteudo.Content = new Pageconfig();
                     break;
+                case "btnfinanceiro":
+                    AreaConteudo.Content = new financeiro();
+                    break;
+                case "btnnotas":
+                    AreaConteudo.Content = new PageNotas();
+                    break;
 
 
             }

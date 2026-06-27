@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,6 +24,10 @@ namespace _65465456456.Pages
         public Pagealunos()
         {
             InitializeComponent();
+
+            datagridalu();
+           
+
         }
 
         private void btnCadastrar_Click(object sender, RoutedEventArgs e)
@@ -73,6 +78,7 @@ namespace _65465456456.Pages
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Aluno cadastrado com sucesso!");
+                    datagridalu();
                 }
 
                 catch (Exception ex)
@@ -81,5 +87,137 @@ namespace _65465456456.Pages
                 }
             }
         }
+
+
+
+        public void datagridalu()
+        {
+
+            string conexaoString =
+      "Server=localhost;Database=escola;Uid=root;Pwd=123456789;";
+
+            using (MySqlConnection conexao = new MySqlConnection(conexaoString))
+            {
+                try
+                {
+                    conexao.Open();
+
+                    string sql = "SELECT * FROM alunos";
+
+                    MySqlDataAdapter da = new MySqlDataAdapter(sql, conexao);
+
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    datagridalunos.ItemsSource = dt.DefaultView;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro: " + ex.Message);
+                }
+
+
+
+
+
+            }
+
+        }
+        private void exclualuno(object sender, RoutedEventArgs e)
+        {
+            Button btn = sender as Button;
+
+            DataRowView linha = btn.DataContext as DataRowView;
+
+            int id = Convert.ToInt32(linha["Id_aluno"]);
+
+            string conexaoString =
+                "Server=localhost;Database=escola;Uid=root;Pwd=123456789;";
+
+            using (MySqlConnection conexao = new MySqlConnection(conexaoString))
+            {
+                try
+                {
+                    conexao.Open();
+
+                    string sql = "DELETE FROM alunos WHERE Id_aluno = @id";
+
+                    MySqlCommand cmd = new MySqlCommand(sql, conexao);
+                    cmd.Parameters.AddWithValue("@id", id);
+
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Aluno excluído com sucesso!");
+
+                    datagridalu(); // recarrega o grid
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro: " + ex.Message);
+                }
+            }
+        }
+
+
+        private void pesquisaraluno(object sender, TextChangedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(alupesquisar.Text))
+            {
+
+                string nome = alupesquisar.Text;
+                string conexaoString =
+                    "Server=localhost;Database=escola;Uid=root;Pwd=123456789;";
+                using (MySqlConnection conexao = new MySqlConnection(conexaoString))
+                {
+                    try
+                    {
+                        conexao.Open();
+                        string sql = "SELECT * FROM alunos WHERE Nome LIKE @nome";
+                        MySqlDataAdapter da = new MySqlDataAdapter(sql, conexao);
+                        da.SelectCommand.Parameters.AddWithValue("@nome", "%" + nome + "%");
+
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        datagridalunos.ItemsSource = dt.DefaultView;
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Erro: " + ex.Message);
+                    }
+
+
+
+
+
+                }
+
+            }
+            else {
+
+                datagridalu();
+
+
+
+            }
+        }
+
+        private void btnLimpar_Click(object sender, RoutedEventArgs e)
+        {
+
+            aluCPF.Clear();
+            alunome.Clear();    
+            aluemail.Clear();   
+            aluidade.Clear();
+            alusenha.Clear();
+            cmbTurma.SelectedIndex = -1;
+
+
+
+        }
     }
 }
+
+
+
+

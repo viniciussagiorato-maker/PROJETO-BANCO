@@ -1,0 +1,262 @@
+﻿<UserControl x:Class="_65465456456.Pages.financeiro"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="720" d:DesignWidth="1280">
+
+    <Grid Background="#F3F6FB">
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+
+            <StackPanel Margin="25">
+
+                <!-- CABEÇALHO -->
+                <StackPanel Margin="0,0,0,20">
+
+                    <TextBlock Text="💰 Gestão Financeira"
+                               FontSize="30"
+                               FontWeight="Bold"
+                               Foreground="#1D4ED8"/>
+
+                    <TextBlock Text="Controle financeiro da escola"
+                               FontSize="16"
+                               Foreground="#6B7280"/>
+
+                </StackPanel>
+
+                <!-- INDICADORES -->
+                <UniformGrid Columns="4" Margin="0,0,0,20">
+
+                    <Border Style="{StaticResource CardStyle}">
+                        <StackPanel>
+                            <TextBlock Text="Receitas"
+                                       Foreground="#6B7280"/>
+
+                            <TextBlock x:Name="txtReceitas"
+                                       Text="R$ 0,00"
+                                       FontSize="28"
+                                       FontWeight="Bold"
+                                       Foreground="#16A34A"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Style="{StaticResource CardStyle}">
+                        <StackPanel>
+                            <TextBlock Text="Despesas"
+                                       Foreground="#6B7280"/>
+
+                            <TextBlock x:Name="txtDespesas"
+                                       Text="R$ 0,00"
+                                       FontSize="28"
+                                       FontWeight="Bold"
+                                       Foreground="#DC2626"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Style="{StaticResource CardStyle}">
+                        <StackPanel>
+                            <TextBlock Text="Saldo"
+                                       Foreground="#6B7280"/>
+
+                            <TextBlock x:Name="txtSaldo"
+                                       Text="R$ 0,00"
+                                       FontSize="28"
+                                       FontWeight="Bold"
+                                       Foreground="#2563EB"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Style="{StaticResource CardStyle}">
+                        <StackPanel>
+                            <TextBlock Text="Mensalidades Pendentes"
+                                       Foreground="#6B7280"/>
+
+                            <TextBlock x:Name="txtPendentes"
+                                       Text="0"
+                                       FontSize="28"
+                                       FontWeight="Bold"
+                                       Foreground="#F59E0B"/>
+                        </StackPanel>
+                    </Border>
+
+                </UniformGrid>
+
+                <!-- DASHBOARD -->
+                <Grid Margin="0,0,0,20">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- DESEMPENHO -->
+
+                    <Border Grid.Column="0"
+                            Style="{StaticResource CardStyle}">
+
+                        <StackPanel>
+
+                            <TextBlock Text="Desempenho Financeiro"
+                                       FontSize="22"
+                                       FontWeight="Bold"
+                                       Margin="0,0,0,20"/>
+
+                            <TextBlock Text="Receitas"/>
+                            <ProgressBar x:Name="pbReceitas"
+                                         Height="25"
+                                         Value="0"
+                                         Maximum="100"
+                                         Margin="0,5,0,15"/>
+
+                            <TextBlock Text="Despesas"/>
+                            <ProgressBar x:Name="pbDespesas"
+                                         Height="25"
+                                         Value="0"
+                                         Maximum="100"
+                                         Margin="0,5,0,15"/>
+
+                            <TextBlock Text="Mensalidades Pagas"/>
+                            <ProgressBar x:Name="pbMensalidades"
+                                         Height="25"
+                                         Value="0"
+                                         Maximum="100"
+                                         Margin="0,5,0,15"/>
+
+                            <TextBlock Text="Meta Financeira"/>
+                            <ProgressBar x:Name="pbMeta"
+                                         Height="25"
+                                         Value="0"
+                                         Maximum="100"/>
+                        </StackPanel>
+
+                    </Border>
+
+                    <!-- RESUMO -->
+
+                    <Border Grid.Column="1"
+                            Style="{StaticResource CardStyle}">
+
+                        <StackPanel>
+
+                            <TextBlock Text="Resumo do Mês"
+                                       FontSize="22"
+                                       FontWeight="Bold"
+                                       Margin="0,0,0,15"/>
+
+                            <Border Background="#EFF6FF"
+                                    CornerRadius="10"
+                                    Padding="10"
+                                    Margin="0,0,0,10">
+
+                                <StackPanel>
+                                    <TextBlock Text="Mensalidades Pagas"/>
+                                    <TextBlock x:Name="txtPagas"
+                                               Text="0"
+                                               FontSize="24"
+                                               FontWeight="Bold"/>
+                                </StackPanel>
+
+                            </Border>
+
+                            <Border Background="#FEF3C7"
+                                    CornerRadius="10"
+                                    Padding="10"
+                                    Margin="0,0,0,10">
+
+                                <StackPanel>
+                                    <TextBlock Text="Mensalidades Pendentes"/>
+                                    <TextBlock x:Name="txtPendentesMes"
+                                               Text="0"
+                                               FontSize="24"
+                                               FontWeight="Bold"/>
+                                </StackPanel>
+
+                            </Border>
+
+                            <Border Background="#ECFDF5"
+                                    CornerRadius="10"
+                                    Padding="10">
+
+                                <StackPanel>
+                                    <TextBlock Text="Previsão de Recebimento"/>
+                                    <TextBlock x:Name="txtPrevisao"
+                                               Text="R$ 0,00"
+                                               FontSize="24"
+                                               FontWeight="Bold"/>
+                                </StackPanel>
+
+                            </Border>
+
+                        </StackPanel>
+
+                    </Border>
+
+                </Grid>
+
+                <!-- PESQUISA -->
+
+                <Border Style="{StaticResource CardStyle}"
+                        Margin="0,0,0,20">
+
+                    <TextBox Height="35"
+                             FontSize="15"
+                             VerticalContentAlignment="Center"
+                             Text="Pesquisar movimentação..."/>
+
+                </Border>
+
+                <!-- MOVIMENTAÇÕES -->
+
+                <Border Style="{StaticResource CardStyle}">
+
+                    <StackPanel>
+
+                        <TextBlock Text="Últimas Movimentações"
+                                   FontSize="24"
+                                   FontWeight="Bold"
+                                   Margin="0,0,0,15"/>
+
+                        <DataGrid x:Name="dgFinanceiro"
+                                  Height="350"
+                                  AutoGenerateColumns="False"
+                                  CanUserAddRows="False">
+
+                            <DataGrid.Columns>
+
+                                <DataGridTextColumn Header="Data"
+                                                    Binding="{Binding data_lancamento}"
+                                                    Width="120"/>
+
+                                <DataGridTextColumn Header="Descrição"
+                                                    Binding="{Binding descricao}"
+                                                    Width="*"/>
+
+                                <DataGridTextColumn Header="Categoria"
+                                                    Binding="{Binding categoria}"
+                                                    Width="150"/>
+
+                                <DataGridTextColumn Header="Tipo"
+                                                    Binding="{Binding tipo}"
+                                                    Width="120"/>
+
+                                <DataGridTextColumn Header="Valor"
+                                                    Binding="{Binding valor}"
+                                                    Width="120"/>
+
+                            </DataGrid.Columns>
+
+                        </DataGrid>
+
+                    </StackPanel>
+
+                </Border>
+
+            </StackPanel>
+
+        </ScrollViewer>
+
+    </Grid>
+
+</UserControl>

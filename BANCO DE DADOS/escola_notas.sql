@@ -16,34 +16,34 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `professores`
+-- Table structure for table `notas`
 --
 
-DROP TABLE IF EXISTS `professores`;
+DROP TABLE IF EXISTS `notas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `professores` (
-  `Id_prof` int NOT NULL AUTO_INCREMENT,
-  `Nome_prof` varchar(100) NOT NULL,
-  `Email` varchar(60) NOT NULL,
-  `Telefone` varchar(50) DEFAULT NULL,
-  `CPF` varchar(15) NOT NULL,
-  `Formacao` varchar(50) NOT NULL,
-  `Disciplina` varchar(50) NOT NULL,
-  PRIMARY KEY (`Id_prof`),
-  UNIQUE KEY `Email` (`Email`),
-  UNIQUE KEY `CPF` (`CPF`),
-  UNIQUE KEY `Telefone` (`Telefone`)
+CREATE TABLE `notas` (
+  `Id_nota` int NOT NULL AUTO_INCREMENT,
+  `Id_aluno` int NOT NULL,
+  `Matematica` int DEFAULT NULL,
+  `Portugues` int DEFAULT NULL,
+  `Ciencias` int DEFAULT NULL,
+  `Ingles` int DEFAULT NULL,
+  `Geografia` int DEFAULT NULL,
+  `Historia` int DEFAULT NULL,
+  PRIMARY KEY (`Id_nota`),
+  KEY `Id_aluno` (`Id_aluno`),
+  CONSTRAINT `notas_ibfk_1` FOREIGN KEY (`Id_aluno`) REFERENCES `alunos` (`Id_aluno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `professores`
+-- Dumping data for table `notas`
 --
 
-LOCK TABLES `professores` WRITE;
-/*!40000 ALTER TABLE `professores` DISABLE KEYS */;
-/*!40000 ALTER TABLE `professores` ENABLE KEYS */;
+LOCK TABLES `notas` WRITE;
+/*!40000 ALTER TABLE `notas` DISABLE KEYS */;
+/*!40000 ALTER TABLE `notas` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-06-19 20:02:37
+-- Dump completed on 2026-06-26 21:05:41

@@ -8,7 +8,7 @@
              d:DesignHeight="720" d:DesignWidth="1280">
     <Grid Background="#F3F6FB">
 
-        <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,10,0,-10">
 
             <StackPanel Margin="25">
 
@@ -147,7 +147,7 @@
                                 Height="45"
                                 Background="#E5E7EB"
                                 Foreground="#374151"
-                                FontWeight="Bold"
+                                FontWeight="Bold" Click="btnLimpar_Click"
                                 />
 
                         </StackPanel>
@@ -165,7 +165,7 @@
                          Height="40"
                          FontSize="15"
                          VerticalContentAlignment="Center"
-                         Text="Pesquisar aluno..."/>
+                         Text="" TextChanged="pesquisaraluno"/>
 
                 </Border>
 
@@ -180,12 +180,16 @@
                                FontWeight="Bold"
                                Margin="0,0,0,15"/>
 
-                        <DataGrid x:Name="dgAlunos"
+                        <DataGrid x:Name="datagridalunos"
                               Height="280"
                               AutoGenerateColumns="False"
                               CanUserAddRows="False">
 
                             <DataGrid.Columns>
+                                
+                                <DataGridTextColumn Header="ID"
+                                                Width="*"
+                                                Binding="{Binding Id_aluno}"/>
 
                                 <DataGridTextColumn Header="Nome"
                                                 Width="*"
@@ -204,8 +208,9 @@
                                                 Binding="{Binding Turma}"/>
 
                                 <DataGridTextColumn Header="Idade"
-                                                Width="80"
-                                                Binding="{Binding Idade}"/>
+                                                Width="*"
+                                                Binding="{Binding idade}"/>
+                              
 
                                 <!-- EDITAR -->
 
@@ -216,7 +221,7 @@
 
                                         <DataTemplate>
 
-                                            <Button Content="✏"
+                                            <Button x:Name="btnedi" Content="✏"
                                                 Width="35"
                                                 Height="30"
                                                 Background="#3B82F6"
@@ -239,13 +244,13 @@
 
                                         <DataTemplate>
 
-                                            <Button Content="🗑"
+                                            <Button x:Name="exclualunos" Content="🗑"
                                                 Width="35"
                                                 Height="30"
                                                 Background="#EF4444"
                                                 Foreground="White"
                                                 FontWeight="Bold"
-                                                />
+                                                Click="exclualuno"/>
 
                                         </DataTemplate>
 

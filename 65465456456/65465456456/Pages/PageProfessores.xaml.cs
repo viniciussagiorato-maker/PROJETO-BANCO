@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,6 +23,7 @@ namespace _65465456456.Pages
         public PageProfessores()
         {
             InitializeComponent();
+            datagridpro1();
         }
 
         private void btnCadastrar_Click(object sender, RoutedEventArgs e)
@@ -32,7 +34,7 @@ namespace _65465456456.Pages
             string email = proemail.Text;
             string senha = prosenha.Password;
             string Forma = proformacao.Text;
-            string Disci = cmbDisciplina.SelectionBoxItem.ToString(); 
+            string Disci = cmbDisciplina.SelectionBoxItem.ToString();
 
 
 
@@ -81,6 +83,93 @@ namespace _65465456456.Pages
 
 
             }
+
+
+        }
+        public void datagridpro1()
+        {
+
+            string conexaoString =
+      "Server=localhost;Database=escola;Uid=root;Pwd=123456789;";
+
+            using (MySqlConnection conexao = new MySqlConnection(conexaoString))
+            {
+                try
+                {
+                    conexao.Open();
+
+                    string sql = "SELECT * FROM professores";
+
+                    MySqlDataAdapter da = new MySqlDataAdapter(sql, conexao);
+
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    datagridpro.ItemsSource = dt.DefaultView;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro: " + ex.Message);
+                }
+
+
+
+            }
+        }
+
+
+        private void pesquisaraluno(object sender, TextChangedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtPesquisar.Text))
+            {
+
+                string nome = txtPesquisar.Text;
+                string conexaoString =
+                    "Server=localhost;Database=escola;Uid=root;Pwd=123456789;";
+                using (MySqlConnection conexao = new MySqlConnection(conexaoString))
+                {
+                    try
+                    {
+                        conexao.Open();
+                        string sql = "SELECT * FROM alunos WHERE Nome LIKE @nome";
+                        MySqlDataAdapter da = new MySqlDataAdapter(sql, conexao);
+                        da.SelectCommand.Parameters.AddWithValue("@nome", "%" + nome + "%");
+
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        datagridpro.ItemsSource = dt.DefaultView;
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Erro: " + ex.Message);
+                    }
+                }
+
+            }
+            else
+            {
+
+                datagridpro1();
+
+            }
+
+        }
+
+      
+
+        private void btnLimpar_Click(object sender, RoutedEventArgs e)
+        {
+
+            procpf.Clear();
+            pronome.Clear();
+            proemail.Clear();
+            procpf.Clear();
+            proformacao.Clear();
+            prosenha.Clear();   
+            cmbDisciplina.SelectedIndex = -1;
+
+
         }
     }
 }
