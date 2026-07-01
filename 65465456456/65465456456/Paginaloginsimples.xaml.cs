@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static _65465456456.Pages.sessao;
 
 
 namespace _65465456456
@@ -20,6 +21,7 @@ namespace _65465456456
     /// </summary>
     public partial class Paginaloginsimples : Page
     {
+
         public Paginaloginsimples()
         {
             InitializeComponent();
@@ -52,7 +54,7 @@ namespace _65465456456
             }
         }
 
-        private void Logar(object sender, RoutedEventArgs e)
+        public void Logar(object sender, RoutedEventArgs e)
         {
 
             string Usu = email_usuario.Text;
@@ -77,7 +79,7 @@ namespace _65465456456
 
                     cmd.Parameters.AddWithValue("@Email", Usu);
                     cmd.Parameters.AddWithValue("@Senha", sen);
-                    cmd.Parameters.AddWithValue("@Nome", nome);
+                    cmd.Parameters.AddWithValue("@Nome_user", nome);
 
                     MySqlDataReader reader = cmd.ExecuteReader();
 
@@ -88,6 +90,9 @@ namespace _65465456456
                         
 
                         MessageBox.Show("Bem-vindo ");
+
+
+                        Sessao.NomeUsuario = reader["Nome_user"].ToString(); // ou o nome correto da coluna
 
                         NavigationService.Navigate(new home());
                     }

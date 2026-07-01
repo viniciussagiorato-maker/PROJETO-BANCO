@@ -23,7 +23,7 @@
                     </Grid.ColumnDefinitions>
 
                     <StackPanel>
-                        <TextBlock Text="Bem-vindo de volta!"
+                        <TextBlock x:Name="msgwelcome" Text="Bem-vindo de volta!"
                            FontSize="30"
                            FontWeight="Bold"
                            Foreground="#173B8F"/>

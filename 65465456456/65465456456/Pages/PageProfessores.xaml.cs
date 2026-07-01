@@ -36,53 +36,56 @@ namespace _65465456456.Pages
             string Forma = proformacao.Text;
             string Disci = cmbDisciplina.SelectionBoxItem.ToString();
 
+         
 
 
-            if (string.IsNullOrWhiteSpace(nome) ||
-                 string.IsNullOrWhiteSpace(cpf) ||
-                 string.IsNullOrWhiteSpace(email) ||
-                string.IsNullOrWhiteSpace(senha)
-                )
-            {
-                MessageBox.Show("Preencha todos os campos.");
-                return;
-            }
-
-            string conexaoString =
-                 "Server=localhost;Database=escola;Uid=root;Pwd=123456789;";
-
-            using (MySqlConnection conexao = new MySqlConnection(conexaoString))
-            {
-                try
+                if (string.IsNullOrWhiteSpace(nome) ||
+                    string.IsNullOrWhiteSpace(cpf) ||
+                    string.IsNullOrWhiteSpace(email) ||
+                   string.IsNullOrWhiteSpace(senha)
+                   )
                 {
-                    conexao.Open();
+                    MessageBox.Show("Preencha todos os campos.");
+                    return;
+                }
 
-                    string sql = @"
+                string conexaoString =
+                     "Server=localhost;Database=escola;Uid=root;Pwd=123456789;";
+
+                using (MySqlConnection conexao = new MySqlConnection(conexaoString))
+                {
+                    try
+                    {
+                        conexao.Open();
+
+                        string sql = @"
                 INSERT INTO professores
                 (Nome_prof, CPF, Email, Senha, Formacao, Disciplina)
                 VALUES
                 (@Nome_prof, @CPF, @Email, @Senha, @Formacao, @Disciplina)";
 
-                    MySqlCommand cmd = new MySqlCommand(sql, conexao);
+                        MySqlCommand cmd = new MySqlCommand(sql, conexao);
 
-                    cmd.Parameters.AddWithValue("@Nome_prof", nome);
-                    cmd.Parameters.AddWithValue("@CPF", cpf);
-                    cmd.Parameters.AddWithValue("@Email", email);
-                    cmd.Parameters.AddWithValue("@Senha", senha);
-                    cmd.Parameters.AddWithValue("@Formacao", Forma);
-                    cmd.Parameters.AddWithValue("@Disciplina", Disci);
-                    cmd.ExecuteNonQuery();
+                        cmd.Parameters.AddWithValue("@Nome_prof", nome);
+                        cmd.Parameters.AddWithValue("@CPF", cpf);
+                        cmd.Parameters.AddWithValue("@Email", email);
+                        cmd.Parameters.AddWithValue("@Senha", senha);
+                        cmd.Parameters.AddWithValue("@Formacao", Forma);
+                        cmd.Parameters.AddWithValue("@Disciplina", Disci);
+                        cmd.ExecuteNonQuery();
 
-                    MessageBox.Show("Professor cadastrado com sucesso!");
+                        MessageBox.Show("Professor cadastrado com sucesso!");
+                        datagridpro1();
+                    }
+
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Erro: " + ex.Message);
+                    }
+
+
                 }
-
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro: " + ex.Message);
-                }
-
-
-            }
+     
 
 
         }
@@ -131,7 +134,7 @@ namespace _65465456456.Pages
                     try
                     {
                         conexao.Open();
-                        string sql = "SELECT * FROM alunos WHERE Nome LIKE @nome";
+                        string sql = "SELECT * FROM professores WHERE Nome_prof LIKE @nome";
                         MySqlDataAdapter da = new MySqlDataAdapter(sql, conexao);
                         da.SelectCommand.Parameters.AddWithValue("@nome", "%" + nome + "%");
 
@@ -170,6 +173,51 @@ namespace _65465456456.Pages
             cmbDisciplina.SelectedIndex = -1;
 
 
+        }
+
+
+        private bool alterandoCpf = false;
+
+
+        private void procpf_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (alterandoCpf)
+                return;
+
+            alterandoCpf = true;
+
+            TextBox txt = sender as TextBox;
+
+            // Remove tudo que não é número
+            string numeros = new string(txt.Text.Where(char.IsDigit).ToArray());
+
+            // Limita em 11 dígitos
+            if (numeros.Length > 11)
+                numeros = numeros.Substring(0, 11);
+
+            string cpfFormatado = "";
+
+            if (numeros.Length <= 3)
+            {
+                cpfFormatado = numeros;
+            }
+            else if (numeros.Length <= 6)
+            {
+                cpfFormatado = numeros.Insert(3, ".");
+            }
+            else if (numeros.Length <= 9)
+            {
+                cpfFormatado = numeros.Insert(3, ".").Insert(7, ".");
+            }
+            else
+            {
+                cpfFormatado = numeros.Insert(3, ".").Insert(7, ".").Insert(11, "-");
+            }
+
+            txt.Text = cpfFormatado;
+            txt.SelectionStart = txt.Text.Length;
+
+            alterandoCpf = false;
         }
     }
 }

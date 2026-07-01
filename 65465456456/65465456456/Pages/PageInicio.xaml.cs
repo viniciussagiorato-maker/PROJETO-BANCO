@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static _65465456456.Pages.sessao;
 
 namespace _65465456456.Pages
 {
@@ -19,13 +20,17 @@ namespace _65465456456.Pages
     /// </summary>
     public partial class PageInicio : UserControl
     {
+
         public PageInicio()
         {
             InitializeComponent();
             menupequeno();
+            msgwelcome.Text = $"Bem-vindo, {Sessao.NomeUsuario}!";
+
+
         }
 
-
+   
 
         private void menupequeno()
         {

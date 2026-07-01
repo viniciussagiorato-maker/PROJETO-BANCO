@@ -20,11 +20,14 @@ namespace _65465456456
     /// </summary>
     public partial class home : Page
     {
+        
         public List<Button> MenuButtons = new();
         public List<Canvas> Menus = new();
+
         public home()
         {
             InitializeComponent();
+        
             AreaConteudo.Content = new PageInicio();
 
             MenuButtons = new()
@@ -50,6 +53,7 @@ namespace _65465456456
 
         private void RefreshMenus(Button curMenu)
         {
+            
             foreach (var btn in MenuButtons)
             {
                 btn.Background = btn == curMenu
@@ -62,6 +66,7 @@ namespace _65465456456
         }
         private void OpeMenu(Button btn)
         {
+
             foreach (var menu in Menus)
             {
                 menu.Visibility = Visibility.Collapsed;

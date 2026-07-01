@@ -72,7 +72,7 @@
                                 <TextBlock Text="CPF"/>
                                 <TextBox x:Name="procpf"
                                      Height="35"
-                                     Margin="0,5,0,0"/>
+                                     Margin="0,5,0,0" TextChanged="procpf_TextChanged"/>
                             </StackPanel>
 
                             <!-- LINHA 2 -->

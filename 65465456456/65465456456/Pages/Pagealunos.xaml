@@ -86,7 +86,7 @@
                                 <TextBlock Text="CPF"/>
 
                                 <TextBox x:Name="aluCPF"
-                                     Height="35"/>
+                                     Height="35" TextChanged="alucpf_TextChanged"/>
 
                             </StackPanel>
 
