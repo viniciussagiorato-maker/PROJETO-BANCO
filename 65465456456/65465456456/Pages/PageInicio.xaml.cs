@@ -52,7 +52,8 @@ namespace _65465456456.Pages
                     MySqlCommand cmdProf = new MySqlCommand("SELECT COUNT(*) FROM professores", conexaoBanco);
                     blockprof.Text = "Professores: " + cmdProf.ExecuteScalar().ToString();
 
-
+                    MySqlCommand cmdturma = new MySqlCommand("SELECT COUNT(DISTINCT Turma) FROM alunos", conexaoBanco);
+                    blockturma.Text = "Turmas: " + cmdturma.ExecuteScalar().ToString();
 
                 }
             }

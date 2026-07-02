@@ -13,6 +13,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+        <!-- Cabeçalho -->
         <StackPanel Margin="0,0,0,20">
             <TextBlock Text="📚 Gestão de Notas"
                        FontSize="30"
@@ -23,6 +24,7 @@
                        Margin="0,6,0,0"/>
         </StackPanel>
 
+        <!-- Área de lançamento -->
         <Grid Grid.Row="1" Margin="0,0,0,20">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="3*"/>
@@ -53,61 +55,54 @@
                                Grid.ColumnSpan="3"
                                Margin="0,0,0,20"/>
 
-                    <StackPanel Grid.Row="1" Margin="8">
+                    <!-- ComboBox de Alunos -->
+                    <StackPanel Grid.Row="1" Margin="8" Grid.ColumnSpan="3">
                         <TextBlock Text="Aluno"/>
-                        <TextBox Height="40"/>
+                        <ComboBox x:Name="cmbAlunos" Height="40" DisplayMemberPath="Nome" SelectedValuePath="Id_aluno"/>
                     </StackPanel>
 
-                    <StackPanel Grid.Row="1" Grid.Column="1" Margin="8">
-                        <TextBlock Text="Turma"/>
-                        <TextBox Height="40"/>
-                    </StackPanel>
-
-                    <StackPanel Grid.Row="1" Grid.Column="2" Margin="8">
-                        <TextBlock Text="Bimestre"/>
-                        <TextBox Height="40"/>
-                    </StackPanel>
-
+                    <!-- Disciplinas -->
                     <StackPanel Grid.Row="2" Margin="8">
                         <TextBlock Text="Matemática"/>
-                        <TextBox Height="40"/>
+                        <TextBox x:Name="txtMatematica" Height="40"/>
                     </StackPanel>
 
                     <StackPanel Grid.Row="2" Grid.Column="1" Margin="8">
                         <TextBlock Text="Português"/>
-                        <TextBox Height="40"/>
+                        <TextBox x:Name="txtPortugues" Height="40"/>
                     </StackPanel>
 
                     <StackPanel Grid.Row="2" Grid.Column="2" Margin="8">
                         <TextBlock Text="Ciências"/>
-                        <TextBox Height="40"/>
+                        <TextBox x:Name="txtCiencias" Height="40"/>
                     </StackPanel>
 
                     <StackPanel Grid.Row="3" Margin="8">
                         <TextBlock Text="Inglês"/>
-                        <TextBox Height="40"/>
+                        <TextBox x:Name="txtIngles" Height="40"/>
                     </StackPanel>
 
                     <StackPanel Grid.Row="3" Grid.Column="1" Margin="8">
                         <TextBlock Text="Geografia"/>
-                        <TextBox Height="40"/>
+                        <TextBox x:Name="txtGeografia" Height="40"/>
                     </StackPanel>
 
                     <StackPanel Grid.Row="3" Grid.Column="2" Margin="8">
                         <TextBlock Text="História"/>
-                        <TextBox Height="40"/>
+                        <TextBox x:Name="txtHistoria" Height="40"/>
                     </StackPanel>
                 </Grid>
             </Border>
 
+            <!-- Painel lateral -->
             <StackPanel Grid.Column="1">
                 <Border Background="White" CornerRadius="18" Padding="20" Margin="0,0,0,15">
                     <StackPanel>
                         <TextBlock Text="Média Geral" FontWeight="Bold"/>
-                        <TextBlock Text="8,75" FontSize="42" FontWeight="Bold" Foreground="#1D4ED8" Margin="0,10"/>
+                        <TextBlock x:Name="txtMediaGeral" Text="0,00" FontSize="42" FontWeight="Bold" Foreground="#1D4ED8" Margin="0,10"/>
                         <TextBlock Text="Situação"/>
-                        <Border Background="#DCFCE7" CornerRadius="10" Padding="8" Margin="0,8">
-                            <TextBlock Text="✔ Aprovado" Foreground="#15803D" FontWeight="Bold"/>
+                        <Border x:Name="borderSituacao" Background="#DCFCE7" CornerRadius="10" Padding="8" Margin="0,8">
+                            <TextBlock x:Name="txtSituacao" Text="✔ Aprovado" Foreground="#15803D" FontWeight="Bold"/>
                         </Border>
                     </StackPanel>
                 </Border>
@@ -118,7 +113,7 @@
                                 Height="42"
                                 Margin="0,0,0,10"
                                 Background="#2563EB"
-                                Foreground="White"/>
+                                Foreground="White" Click="Button_Click"/>
                         <Button Content="✏ Atualizar" Height="42" Margin="0,0,0,10"/>
                         <Button Content="🗑 Limpar" Height="42"/>
                     </StackPanel>
@@ -126,26 +121,24 @@
             </StackPanel>
         </Grid>
 
+        <!-- Tabela -->
         <Border Grid.Row="2" Background="White" CornerRadius="18" Padding="20">
             <StackPanel>
                 <DockPanel Margin="0,0,0,15">
                     <Label Content="Buscar alunos" VerticalContentAlignment="Center"/>
                     <TextBox Width="650" Height="40" HorizontalAlignment="Left"/>
-                    
                 </DockPanel>
 
-                <DataGrid Height="350" AutoGenerateColumns="False">
+                <DataGrid x:Name="DataGridnotas" Height="350" AutoGenerateColumns="False" RowHeight="40">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Aluno" Width="220"/>
-                        <DataGridTextColumn Header="Turma" Width="90"/>
-                        <DataGridTextColumn Header="Mat" Width="60"/>
-                        <DataGridTextColumn Header="Port" Width="60"/>
-                        <DataGridTextColumn Header="Ciên" Width="60"/>
-                        <DataGridTextColumn Header="Ing" Width="60"/>
-                        <DataGridTextColumn Header="Geo" Width="60"/>
-                        <DataGridTextColumn Header="Hist" Width="60"/>
-                        <DataGridTextColumn Header="Média" Width="70"/>
-                        <DataGridTextColumn Header="Situação" Width="120"/>
+                        <DataGridTextColumn Header="Aluno" Binding="{Binding Nome}" Width="220"/>
+                        <DataGridTextColumn Header="Mat" Binding="{Binding Matematica}" Width="70"/>
+                        <DataGridTextColumn Header="Port" Binding="{Binding Portugues}" Width="70"/>
+                        <DataGridTextColumn Header="Ciên" Binding="{Binding Ciencias}" Width="70"/>
+                        <DataGridTextColumn Header="Ing" Binding="{Binding Ingles}" Width="70"/>
+                        <DataGridTextColumn Header="Geo" Binding="{Binding Geografia}" Width="70"/>
+                        <DataGridTextColumn Header="Hist" Binding="{Binding Historia}" Width="70"/>
+                        <DataGridTextColumn Header="Média" Binding="{Binding Media}" Width="70"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
