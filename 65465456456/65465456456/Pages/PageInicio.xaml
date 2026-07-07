@@ -29,7 +29,7 @@
                            Foreground="#173B8F"/>
 
                         <TextBlock Text="Painel principal do sistema escolar"
-                           Foreground="#666"
+                           Foreground="{DynamicResource SecondaryTextBrush}"
                            Margin="0,5,0,0" FontSize="14"/>
                     </StackPanel>
 
@@ -44,9 +44,10 @@
 
                 <!-- Banner -->
                 <Border Height="220"
-                Background="White"
+                Background="{DynamicResource CardBackgroundBrush}"
                 CornerRadius="20"
-                Margin="0,0,0,20">
+                Margin="0,0,0,20"
+                TextElement.Foreground="{DynamicResource PrimaryTextBrush}">
 
                     <Grid>
 
@@ -125,7 +126,8 @@
                     </Grid.ColumnDefinitions>
 
                     <Border Grid.Column="0"
-                    Background="White"
+                    Background="{DynamicResource CardBackgroundBrush}"
+                    TextElement.Foreground="{DynamicResource PrimaryTextBrush}"
                     CornerRadius="16"
                     Padding="20"
                     Margin="0,0,10,0">
@@ -144,7 +146,8 @@
                     </Border>
 
                     <Border Grid.Column="1"
-                    Background="White"
+                    Background="{DynamicResource CardBackgroundBrush}"
+                    TextElement.Foreground="{DynamicResource PrimaryTextBrush}"
                     CornerRadius="16"
                     Padding="20">
 

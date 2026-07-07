@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Tema Claro: mantém exatamente as cores que o app já usava -->
+    <SolidColorBrush x:Key="PageBackgroundBrush" Color="#F3F6FB"/>
+    <SolidColorBrush x:Key="CardBackgroundBrush" Color="White"/>
+    <SolidColorBrush x:Key="PrimaryTextBrush" Color="Black"/>
+    <SolidColorBrush x:Key="SecondaryTextBrush" Color="Gray"/>
+    <SolidColorBrush x:Key="InputBackgroundBrush" Color="White"/>
+    <SolidColorBrush x:Key="InputBorderBrush" Color="#CCCCCC"/>
+    <SolidColorBrush x:Key="AccentBrush" Color="#1D4ED8"/>
+
+</ResourceDictionary>

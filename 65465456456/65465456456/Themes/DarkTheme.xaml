@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Tema Escuro: paleta diferente aplicada quando o usuário seleciona "Tema Escuro" -->
+    <SolidColorBrush x:Key="PageBackgroundBrush" Color="#121218"/>
+    <SolidColorBrush x:Key="CardBackgroundBrush" Color="#1E1E2A"/>
+    <SolidColorBrush x:Key="PrimaryTextBrush" Color="#F1F1F4"/>
+    <SolidColorBrush x:Key="SecondaryTextBrush" Color="#A0A0AD"/>
+    <SolidColorBrush x:Key="InputBackgroundBrush" Color="#2A2A38"/>
+    <SolidColorBrush x:Key="InputBorderBrush" Color="#3E3E4E"/>
+    <SolidColorBrush x:Key="AccentBrush" Color="#3B82F6"/>
+
+</ResourceDictionary>

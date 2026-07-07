@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:_65465456456.Pages"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280">
-    <Grid Background="#F3F6FB">
+    <Grid Background="{DynamicResource PageBackgroundBrush}">
         <ScrollViewer VerticalScrollBarVisibility="Auto">
 
             <StackPanel Margin="25">
@@ -21,7 +21,7 @@
 
                     <TextBlock Text="Cadastre e acompanhe todos os professores da escola"
                            FontSize="15"
-                           Foreground="#666666"/>
+                           Foreground="{DynamicResource SecondaryTextBrush}"/>
 
                 </StackPanel>
 

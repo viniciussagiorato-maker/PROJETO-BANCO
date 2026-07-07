@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280">
 
-    <Grid Background="#F3F6FB">
+    <Grid Background="{DynamicResource PageBackgroundBrush}">
 
         <ScrollViewer VerticalScrollBarVisibility="Auto">
 
@@ -22,7 +22,7 @@
 
                     <TextBlock Text="Controle financeiro da escola"
                                FontSize="16"
-                               Foreground="#6B7280"/>
+                               Foreground="{DynamicResource SecondaryTextBrush}"/>
 
                 </StackPanel>
 

@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_65465456456"
         mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="1280">
+        Title="MainWindow" Height="720" Width="1280"
+        Background="{DynamicResource PageBackgroundBrush}">
     <Grid>
         <Frame Name="Mainframe" NavigationUIVisibility="Hidden" Source="Paginaloginsimples"/>
 
