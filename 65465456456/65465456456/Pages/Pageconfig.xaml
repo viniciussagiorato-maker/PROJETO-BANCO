@@ -326,10 +326,10 @@
 
                             <RadioButton x:Name="temaclaro" Content="Tema Claro"
                                      IsChecked="True"
-                                     Checked="temaclaro_Checked"/>
+                                     />
 
                             <RadioButton x:Name="temaescuro" Content="Tema Escuro"
-                                     Checked="temaescuro_Checked"/>
+                                     />
 
                             <RadioButton Content="Tema Azul"/>
 
@@ -344,13 +344,13 @@
                         HorizontalAlignment="Center"
                         Margin="0,25">
 
-                    <Button Content="Salvar Configurações"
+                    <Button x:Name="salconfig" Content="Salvar Configurações"
                         Width="220"
                         Height="45"
                         Margin="5"
                         Background="#1D4ED8"
                         Foreground="White"
-                        FontWeight="Bold" Click="Button_Click" />
+                        FontWeight="Bold" Click="tema_Checked" />
 
                     <Button Content="Restaurar Padrão"
                         Width="180"

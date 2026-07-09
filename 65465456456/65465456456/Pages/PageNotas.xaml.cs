@@ -1,6 +1,8 @@
 ﻿using MySql.Data.MySqlClient;
+using Mysqlx.Connection;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Windows;
 using System.Windows.Controls;
 using static _65465456456.banco;
@@ -14,6 +16,7 @@ namespace _65465456456.Pages
             InitializeComponent();
             CarregarAlunos();
             CarregarNotas();
+
         }
 
         // Classe auxiliar para Aluno
@@ -36,6 +39,8 @@ namespace _65465456456.Pages
             public double Geografia { get; set; }
             public double Historia { get; set; }
             public double Media { get; set; }
+
+            public string status { get; set; } = "";
         }
 
         // Carrega lista de alunos no ComboBox
@@ -122,15 +127,72 @@ namespace _65465456456.Pages
                         Ingles = reader.GetDouble("Ingles"),
                         Geografia = reader.GetDouble("Geografia"),
                         Historia = reader.GetDouble("Historia"),
-                        Media = reader.GetDouble("Media") // já vem calculada do banco
+                        Media = reader.GetDouble("Media"), // já vem calculada do banco
+                        status = reader.GetDouble("Media") >= 7 ? "Aprovado" : "Reprovado"
+
                     });
                 }
             }
 
             DataGridnotas.ItemsSource = listaNotas;
         }
+
+        private void pesquisaraluno(object sender, TextChangedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(Buscanota.Text))
+            {
+                string nome = Buscanota.Text;
+                string conexaoString = "Server=localhost;Database=escola;Uid=root;Pwd=123456789;";
+
+                using (MySqlConnection conexao = new MySqlConnection(conexaoString))
+                {
+                    try
+                    {
+                        conexao.Open();
+                        string sql = @"SELECT a.Nome,
+                                      n.Matematica,
+                                      n.Portugues,
+                                      n.Ciencias,
+                                      n.Ingles,
+                                      n.Geografia,
+                                      n.Historia,
+                                      n.Media
+                               FROM alunos a
+                               INNER JOIN notas n ON a.Id_aluno = n.Id_aluno
+                               WHERE a.Nome LIKE @nome";
+
+
+
+
+
+                        MySqlDataAdapter da = new MySqlDataAdapter(sql, conexao);
+                        da.SelectCommand.Parameters.AddWithValue("@nome", "%" + nome + "%");
+
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        DataGridnotas.ItemsSource = dt.DefaultView;
+                        conexao.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Erro: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                CarregarNotas();
+            }
+        }
+
+
+
+
     }
+
+
 }
+
 
 
 

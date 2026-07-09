@@ -126,10 +126,10 @@
             <StackPanel>
                 <DockPanel Margin="0,0,0,15">
                     <Label Content="Buscar alunos" VerticalContentAlignment="Center"/>
-                    <TextBox Width="650" Height="40" HorizontalAlignment="Left"/>
+                    <TextBox x:Name="Buscanota" Width="650" Height="40" HorizontalAlignment="Left" TextChanged="pesquisaraluno" />
                 </DockPanel>
 
-                <DataGrid x:Name="DataGridnotas" Height="350" AutoGenerateColumns="False" RowHeight="40">
+                <DataGrid x:Name="DataGridnotas" Height="350" AutoGenerateColumns="False" RowHeight="50">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Aluno" Binding="{Binding Nome}" Width="220"/>
                         <DataGridTextColumn Header="Mat" Binding="{Binding Matematica}" Width="70"/>
@@ -139,6 +139,11 @@
                         <DataGridTextColumn Header="Geo" Binding="{Binding Geografia}" Width="70"/>
                         <DataGridTextColumn Header="Hist" Binding="{Binding Historia}" Width="70"/>
                         <DataGridTextColumn Header="Média" Binding="{Binding Media}" Width="70"/>
+                        <DataGridTextColumn Header="Status"  Width="70" Binding="{Binding status}"/>
+                      
+
+
+
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>

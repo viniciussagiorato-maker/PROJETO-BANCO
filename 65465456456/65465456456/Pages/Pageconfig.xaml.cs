@@ -28,29 +28,34 @@ namespace _65465456456.Pages
             if (ThemeManager.TemaAtual == TemaApp.Escuro)
                 temaescuro.IsChecked = true;
             else
-                temaclaro.IsChecked = true;
+               temaclaro.IsChecked = true;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
 
-
-
-
-
-
-        }
+        
 
         // Tema Claro selecionado: mantém as cores originais do app
-        private void temaclaro_Checked(object sender, RoutedEventArgs e)
+        private void tema_Checked(object sender, RoutedEventArgs e)
         {
-            ThemeManager.AplicarTema(TemaApp.Claro);
+
+            if (temaclaro.IsChecked == true)
+            {
+
+                ThemeManager.AplicarTema(TemaApp.Claro);
+
+            }
+            else if (temaescuro.IsChecked == true) { 
+            
+            
+            ThemeManager.AplicarTema(TemaApp.Escuro);
+            
+            
+            }
+
+
+
+
         }
 
-        // Tema Escuro selecionado: aplica uma paleta de cores diferente no app inteiro
-        private void temaescuro_Checked(object sender, RoutedEventArgs e)
-        {
-            ThemeManager.AplicarTema(TemaApp.Escuro);
-        }
     }
 }
