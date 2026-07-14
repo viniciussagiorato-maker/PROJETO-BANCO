@@ -85,6 +85,12 @@ namespace _65465456456
                 case "btnprofessores":
                     AreaConteudo.Content = new PageProfessores();
                     break;
+                case "btnturmas":
+                    AreaConteudo.Content = new PageTurmas();
+                    break;
+                case "btnagenda":
+                    AreaConteudo.Content = new PageAgenda();
+                    break;
                 case "btnconfig":
                     AreaConteudo.Content = new Pageconfig();
                     break;

@@ -140,7 +140,51 @@
                         <DataGridTextColumn Header="Hist" Binding="{Binding Historia}" Width="70"/>
                         <DataGridTextColumn Header="Média" Binding="{Binding Media}" Width="70"/>
                         <DataGridTextColumn Header="Status"  Width="70" Binding="{Binding status}"/>
-                      
+
+                        <DataGridTemplateColumn Header="Editar"
+    Width="80">
+
+                            <DataGridTemplateColumn.CellTemplate>
+
+                                <DataTemplate>
+
+                                    <Button Content="✏"
+Width="35"
+Height="30"
+Background="#3B82F6"
+Foreground="White"
+FontWeight="Bold"
+/>
+
+                                </DataTemplate>
+
+                            </DataGridTemplateColumn.CellTemplate>
+
+                        </DataGridTemplateColumn>
+
+                        <!-- EXCLUIR -->
+
+                        <DataGridTemplateColumn Header="Excluir"
+    Width="80">
+
+                            <DataGridTemplateColumn.CellTemplate>
+
+                                <DataTemplate>
+
+                                    <Button Content="🗑"
+Width="35"
+Height="30"
+Background="#EF4444"
+Foreground="White"
+FontWeight="Bold"
+/>
+
+                                </DataTemplate>
+
+                            </DataGridTemplateColumn.CellTemplate>
+
+                        </DataGridTemplateColumn>
+
 
 
 

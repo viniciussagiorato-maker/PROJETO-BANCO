@@ -16,35 +16,26 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `alunos`
+-- Table structure for table `turmas`
 --
 
-DROP TABLE IF EXISTS `alunos`;
+DROP TABLE IF EXISTS `turmas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `alunos` (
-  `Id_aluno` int NOT NULL AUTO_INCREMENT,
-  `Nome` varchar(100) DEFAULT NULL,
-  `Email` varchar(50) DEFAULT NULL,
-  `Senha` varchar(50) DEFAULT NULL,
-  `idade` int DEFAULT NULL,
-  `CPF` varchar(15) DEFAULT NULL,
-  `Turma` int DEFAULT NULL,
-  `Data_criacao` datetime DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`Id_aluno`),
-  UNIQUE KEY `Turma` (`Turma`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `turmas` (
+  `Id_turma` int NOT NULL AUTO_INCREMENT,
+  `Nome_turma` varchar(50) NOT NULL,
+  `Serie` varchar(50) DEFAULT NULL,
+  `Turno` varchar(20) DEFAULT NULL,
+  `Sala` varchar(20) DEFAULT NULL,
+  `Capacidade` int DEFAULT NULL,
+  `Id_prof` int DEFAULT NULL,
+  PRIMARY KEY (`Id_turma`),
+  KEY `fk_turmas_professores` (`Id_prof`),
+  CONSTRAINT `fk_turmas_professores` FOREIGN KEY (`Id_prof`) REFERENCES `professores` (`Id_prof`) ON DELETE SET NULL
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `alunos`
---
-
-LOCK TABLES `alunos` WRITE;
-/*!40000 ALTER TABLE `alunos` DISABLE KEYS */;
-INSERT INTO `alunos` VALUES (2,'Lulu','lulu@gmail.com','123456',38,'5464651321231',201,'2026-06-23 21:44:56'),(4,'vini','vini@gmail','123456',23,'05176111047',203,'2026-06-26 19:57:17');
-/*!40000 ALTER TABLE `alunos` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -55,4 +46,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-06-26 21:05:41
+-- Dump completed

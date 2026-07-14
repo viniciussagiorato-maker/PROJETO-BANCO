@@ -16,37 +16,24 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `professores`
+-- Table structure for table `agenda`
 --
 
-DROP TABLE IF EXISTS `professores`;
+DROP TABLE IF EXISTS `agenda`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `professores` (
-  `Id_prof` int NOT NULL AUTO_INCREMENT,
-  `Nome_prof` varchar(100) NOT NULL,
-  `Email` varchar(60) NOT NULL,
-  `Telefone` varchar(50) DEFAULT NULL,
-  `CPF` varchar(15) NOT NULL,
-  `Formacao` varchar(50) NOT NULL,
-  `Disciplina` varchar(50) NOT NULL,
-  `Senha` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`Id_prof`),
-  UNIQUE KEY `Email` (`Email`),
-  UNIQUE KEY `CPF` (`CPF`),
-  UNIQUE KEY `Telefone` (`Telefone`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `agenda` (
+  `Id_evento` int NOT NULL AUTO_INCREMENT,
+  `Titulo` varchar(150) NOT NULL,
+  `Descricao` varchar(500) DEFAULT NULL,
+  `Data_evento` date NOT NULL,
+  `Hora_evento` varchar(10) DEFAULT NULL,
+  `Tipo` varchar(30) DEFAULT NULL,
+  `Turma` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`Id_evento`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `professores`
---
-
-LOCK TABLES `professores` WRITE;
-/*!40000 ALTER TABLE `professores` DISABLE KEYS */;
-INSERT INTO `professores` VALUES (1,'Luciano muller','lulu@gmail.com',NULL,'00155079068','Garoto de Programa','Inglês','123456'),(2,'lm','lm',NULL,'123','ad','Português','123'),(3,'Jaqueline','jaque@gmail.com',NULL,'123456789','top','Português','ln');
-/*!40000 ALTER TABLE `professores` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -57,4 +44,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-07-07 20:26:17
+-- Dump completed

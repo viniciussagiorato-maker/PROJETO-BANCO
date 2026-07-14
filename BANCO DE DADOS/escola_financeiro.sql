@@ -16,34 +16,39 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `usuarios`
+-- Table structure for table `financeiro`
 --
 
-DROP TABLE IF EXISTS `usuarios`;
+DROP TABLE IF EXISTS `financeiro`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `usuarios` (
-  `Id_user` int NOT NULL AUTO_INCREMENT,
-  `Email` varchar(50) NOT NULL,
-  `Nome_user` varchar(100) NOT NULL,
-  `CPF` varchar(15) NOT NULL,
-  `Senha` varchar(50) NOT NULL,
+CREATE TABLE `financeiro` (
+  `Id_lanc` int NOT NULL AUTO_INCREMENT,
+  `Descricao` varchar(200) NOT NULL,
+  `Categoria` varchar(60) DEFAULT NULL,
+  `Tipo` varchar(20) NOT NULL,
+  `Valor` decimal(10,2) NOT NULL,
+  `Status` varchar(20) NOT NULL DEFAULT 'Pago',
+  `Data_lancamento` date NOT NULL,
   `Data_criacao` datetime DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`Id_user`),
-  UNIQUE KEY `Email` (`Email`),
-  UNIQUE KEY `CPF` (`CPF`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`Id_lanc`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `usuarios`
+-- Dados iniciais de exemplo (opcional - pode remover este bloco se preferir começar vazio)
 --
 
-LOCK TABLES `usuarios` WRITE;
-/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'vini@gmail.com','vinicius sagiorato','051.761.110-47','123456','2026-06-11 19:56:46'),(2,'contato.tiagomenezes@gmail.com','tiago','03364670013','fusion@182','2026-06-23 20:48:36'),(3,'carlos@gmail.com','Carlos','049.198.680-75','123','2026-06-26 19:32:20'),(4,'lm','lm','lm','lm','2026-06-30 20:01:53');
-/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
+LOCK TABLES `financeiro` WRITE;
+/*!40000 ALTER TABLE `financeiro` DISABLE KEYS */;
+INSERT INTO `financeiro` (`Descricao`, `Categoria`, `Tipo`, `Valor`, `Status`, `Data_lancamento`) VALUES
+('Mensalidade - Turma 201', 'Mensalidade', 'Receita', 450.00, 'Pago', '2026-07-05'),
+('Mensalidade - Turma 301', 'Mensalidade', 'Receita', 480.00, 'Pendente', '2026-07-05'),
+('Salário Professor Inglês', 'Folha de Pagamento', 'Despesa', 3200.00, 'Pago', '2026-07-03'),
+('Material Didático', 'Material', 'Despesa', 650.00, 'Pago', '2026-07-02');
+/*!40000 ALTER TABLE `financeiro` ENABLE KEYS */;
 UNLOCK TABLES;
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -54,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-07-07 20:26:17
+-- Dump completed

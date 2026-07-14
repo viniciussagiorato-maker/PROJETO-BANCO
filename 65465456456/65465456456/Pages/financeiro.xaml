@@ -26,6 +26,127 @@
 
                 </StackPanel>
 
+                <!-- NOVO LANÇAMENTO -->
+                <Border Style="{StaticResource CardStyle}"
+                        Padding="25"
+                        Margin="0,0,0,20">
+
+                    <StackPanel>
+
+                        <TextBlock Text="Novo Lançamento"
+                                   FontSize="22"
+                                   FontWeight="Bold"
+                                   Margin="0,0,0,20"/>
+
+                        <Grid>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <!-- Descrição -->
+                            <StackPanel Grid.Row="0" Grid.Column="0">
+                                <TextBlock Text="Descrição"/>
+                                <TextBox x:Name="txtDescricao"
+                                         Height="35"/>
+                            </StackPanel>
+
+                            <!-- Categoria -->
+                            <StackPanel Grid.Row="0" Grid.Column="2">
+                                <TextBlock Text="Categoria"/>
+                                <ComboBox x:Name="cmbCategoria"
+                                          Height="35"
+                                          IsEditable="True">
+                                    <ComboBoxItem Content="Mensalidade"/>
+                                    <ComboBoxItem Content="Folha de Pagamento"/>
+                                    <ComboBoxItem Content="Material"/>
+                                    <ComboBoxItem Content="Manutenção"/>
+                                    <ComboBoxItem Content="Contas de Consumo"/>
+                                    <ComboBoxItem Content="Outros"/>
+                                </ComboBox>
+                            </StackPanel>
+
+                            <!-- Tipo -->
+                            <StackPanel Grid.Row="0" Grid.Column="4">
+                                <TextBlock Text="Tipo"/>
+                                <ComboBox x:Name="cmbTipo"
+                                          Height="35">
+                                    <ComboBoxItem Content="Receita"/>
+                                    <ComboBoxItem Content="Despesa"/>
+                                </ComboBox>
+                            </StackPanel>
+
+                            <!-- Valor -->
+                            <StackPanel Grid.Row="1"
+                                        Grid.Column="0"
+                                        Margin="0,15,0,0">
+                                <TextBlock Text="Valor (R$)"/>
+                                <TextBox x:Name="txtValor"
+                                         Height="35"/>
+                            </StackPanel>
+
+                            <!-- Data -->
+                            <StackPanel Grid.Row="1"
+                                        Grid.Column="2"
+                                        Margin="0,15,0,0">
+                                <TextBlock Text="Data"/>
+                                <DatePicker x:Name="dpData"
+                                            Height="35"/>
+                            </StackPanel>
+
+                            <!-- Status -->
+                            <StackPanel Grid.Row="1"
+                                        Grid.Column="4"
+                                        Margin="0,15,0,0">
+                                <TextBlock Text="Status"/>
+                                <ComboBox x:Name="cmbStatus"
+                                          Height="35">
+                                    <ComboBoxItem Content="Pago"/>
+                                    <ComboBoxItem Content="Pendente"/>
+                                </ComboBox>
+                            </StackPanel>
+
+                        </Grid>
+
+                        <!-- BOTÕES -->
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Center"
+                                    Margin="0,25,0,0">
+
+                            <Button x:Name="btnSalvarLancamento"
+                                    Content="Salvar Lançamento"
+                                    Width="220"
+                                    Height="45"
+                                    Margin="0,0,10,0"
+                                    Background="#1D4ED8"
+                                    Foreground="White"
+                                    FontWeight="Bold"
+                                    Click="btnSalvarLancamento_Click"/>
+
+                            <Button x:Name="btnLimparLancamento"
+                                    Content="Limpar Tudo"
+                                    Width="160"
+                                    Height="45"
+                                    Background="#E5E7EB"
+                                    Foreground="#374151"
+                                    FontWeight="Bold"
+                                    Click="btnLimparLancamento_Click"/>
+
+                        </StackPanel>
+
+                    </StackPanel>
+
+                </Border>
+
                 <!-- INDICADORES -->
                 <UniformGrid Columns="4" Margin="0,0,0,20">
 
@@ -200,10 +321,11 @@
                 <Border Style="{StaticResource CardStyle}"
                         Margin="0,0,0,20">
 
-                    <TextBox Height="35"
+                    <TextBox x:Name="txtPesquisar"
+                             Height="35"
                              FontSize="15"
                              VerticalContentAlignment="Center"
-                             Text="Pesquisar movimentação..."/>
+                             TextChanged="txtPesquisar_TextChanged"/>
 
                 </Border>
 
@@ -226,24 +348,41 @@
                             <DataGrid.Columns>
 
                                 <DataGridTextColumn Header="Data"
-                                                    Binding="{Binding data_lancamento}"
-                                                    Width="120"/>
+                                                    Binding="{Binding Data_lancamento, StringFormat=dd/MM/yyyy}"
+                                                    Width="100"/>
 
                                 <DataGridTextColumn Header="Descrição"
-                                                    Binding="{Binding descricao}"
+                                                    Binding="{Binding Descricao}"
                                                     Width="*"/>
 
                                 <DataGridTextColumn Header="Categoria"
-                                                    Binding="{Binding categoria}"
+                                                    Binding="{Binding Categoria}"
                                                     Width="150"/>
 
                                 <DataGridTextColumn Header="Tipo"
-                                                    Binding="{Binding tipo}"
-                                                    Width="120"/>
+                                                    Binding="{Binding Tipo}"
+                                                    Width="100"/>
 
                                 <DataGridTextColumn Header="Valor"
-                                                    Binding="{Binding valor}"
+                                                    Binding="{Binding Valor, StringFormat={}{0:C2}}"
                                                     Width="120"/>
+
+                                <DataGridTextColumn Header="Status"
+                                                    Binding="{Binding Status}"
+                                                    Width="100"/>
+
+                                <DataGridTemplateColumn Header="Ações" Width="90">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Content="Excluir"
+                                                    Background="#FEE2E2"
+                                                    Foreground="#DC2626"
+                                                    FontWeight="Bold"
+                                                    Padding="8,4"
+                                                    Click="excluirLancamento"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
 
                             </DataGrid.Columns>
 
