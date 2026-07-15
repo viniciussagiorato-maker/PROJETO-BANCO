@@ -61,7 +61,7 @@ namespace _65465456456
         {
 
 
-         
+
 
             string senha = senhadigitar.Password;
             string nome = nomedigitar.Text;
@@ -121,14 +121,58 @@ namespace _65465456456
                     MessageBox.Show("Erro: " + ex.Message);
                 }
             }
-
-
-
         }
 
+             private bool alterandoCpf = false;
+
+
+        private void procpf_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (alterandoCpf)
+                return;
+
+            alterandoCpf = true;
+
+            TextBox txt = sender as TextBox;
+
+            // Remove tudo que não é número
+            string numeros = new string(txt.Text.Where(char.IsDigit).ToArray());
+
+            // Limita em 11 dígitos
+            if (numeros.Length > 11)
+                numeros = numeros.Substring(0, 11);
+
+            string cpfFormatado = "";
+
+            if (numeros.Length <= 3)
+            {
+                cpfFormatado = numeros;
+            }
+            else if (numeros.Length <= 6)
+            {
+                cpfFormatado = numeros.Insert(3, ".");
+            }
+            else if (numeros.Length <= 9)
+            {
+                cpfFormatado = numeros.Insert(3, ".").Insert(7, ".");
+            }
+            else
+            {
+                cpfFormatado = numeros.Insert(3, ".").Insert(7, ".").Insert(11, "-");
+            }
+
+            txt.Text = cpfFormatado;
+            txt.SelectionStart = txt.Text.Length;
+
+            alterandoCpf = false;
+        }
+
+    }
+
 
 
 
     }
-    }
+    
+    
 

@@ -53,7 +53,7 @@
                 IsHitTestVisible="False" TextAlignment="Center" Canvas.Left="554" Canvas.Top="289" HorizontalAlignment="Left" VerticalAlignment="Center" ><Run Language="pt-br" Text="Nome"/></TextBlock>
 
 
-            <TextBox Tag="{Binding ElementName=CPFBLOCK}" x:Name="CPF" Canvas.Left="527" TextWrapping="Wrap" Canvas.Top="332" Width="226" Height="28" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="35,5,0,0" LostFocus="geral_LostFocus" GotFocus="geral_GotFocus"/>
+            <TextBox Tag="{Binding ElementName=CPFBLOCK}" x:Name="CPF" Canvas.Left="527" TextWrapping="Wrap" Canvas.Top="332" Width="226" Height="28" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="35,5,0,0" LostFocus="geral_LostFocus" GotFocus="geral_GotFocus" TextChanged="procpf_TextChanged"/>
             <TextBlock x:Name="CPFBLOCK" TextWrapping="Wrap" Opacity="0.5" FontSize="14"
                 IsHitTestVisible="False" TextAlignment="Center" Canvas.Left="554" Canvas.Top="337" HorizontalAlignment="Left" VerticalAlignment="Center" ><Run Language="pt-br" Text="CPF"/></TextBlock>
             
