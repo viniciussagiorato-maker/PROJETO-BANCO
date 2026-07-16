@@ -35,7 +35,7 @@ CREATE TABLE `professores` (
   UNIQUE KEY `Email` (`Email`),
   UNIQUE KEY `CPF` (`CPF`),
   UNIQUE KEY `Telefone` (`Telefone`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,7 +44,7 @@ CREATE TABLE `professores` (
 
 LOCK TABLES `professores` WRITE;
 /*!40000 ALTER TABLE `professores` DISABLE KEYS */;
-INSERT INTO `professores` VALUES (1,'Luciano muller','lulu@gmail.com',NULL,'00155079068','Garoto de Programa','Inglês','123456');
+INSERT INTO `professores` VALUES (2,'fabio ro','fa@gmail',NULL,'545.645.646-54','matematica','Matemática','asdasffdsfds');
 /*!40000 ALTER TABLE `professores` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -57,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-06-26 21:05:41
+-- Dump completed on 2026-07-16 20:54:02

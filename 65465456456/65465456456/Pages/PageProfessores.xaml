@@ -251,7 +251,7 @@
                  Height="30"
                  Background="#EF4444"
                  Foreground="White"
-                 FontWeight="Bold"
+                 FontWeight="Bold" Click="exclupro"
                  />
 
                                         </DataTemplate>

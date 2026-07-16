@@ -33,9 +33,18 @@ CREATE TABLE `turmas` (
   PRIMARY KEY (`Id_turma`),
   KEY `fk_turmas_professores` (`Id_prof`),
   CONSTRAINT `fk_turmas_professores` FOREIGN KEY (`Id_prof`) REFERENCES `professores` (`Id_prof`) ON DELETE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Dumping data for table `turmas`
+--
+
+LOCK TABLES `turmas` WRITE;
+/*!40000 ALTER TABLE `turmas` DISABLE KEYS */;
+INSERT INTO `turmas` VALUES (1,'201','2º Ano','Manhã','1',30,NULL);
+/*!40000 ALTER TABLE `turmas` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -46,4 +55,4 @@ CREATE TABLE `turmas` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed
+-- Dump completed on 2026-07-16 20:54:02

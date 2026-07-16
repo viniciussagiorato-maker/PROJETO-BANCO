@@ -34,7 +34,7 @@ CREATE TABLE `notas` (
   `Media` decimal(5,2) GENERATED ALWAYS AS (((((((`Matematica` + `Portugues`) + `Ciencias`) + `Ingles`) + `Geografia`) + `Historia`) / 6)) STORED,
   PRIMARY KEY (`Id_nota`),
   KEY `Id_aluno` (`Id_aluno`),
-  CONSTRAINT `notas_ibfk_1` FOREIGN KEY (`Id_aluno`) REFERENCES `alunos` (`Id_aluno`)
+  CONSTRAINT `fk_notas_alunos` FOREIGN KEY (`Id_aluno`) REFERENCES `alunos` (`Id_aluno`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -44,7 +44,7 @@ CREATE TABLE `notas` (
 
 LOCK TABLES `notas` WRITE;
 /*!40000 ALTER TABLE `notas` DISABLE KEYS */;
-INSERT INTO `notas` (`Id_nota`, `Id_aluno`, `Matematica`, `Portugues`, `Ciencias`, `Ingles`, `Geografia`, `Historia`) VALUES (1,4,8,10,6,5,2,2),(2,8,8,10,6,5,10,7),(3,9,4,6,10,8,7,6);
+INSERT INTO `notas` (`Id_nota`, `Id_aluno`, `Matematica`, `Portugues`, `Ciencias`, `Ingles`, `Geografia`, `Historia`) VALUES (1,4,8,10,6,5,2,2);
 /*!40000 ALTER TABLE `notas` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -57,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-07-07 20:26:17
+-- Dump completed on 2026-07-16 20:54:02

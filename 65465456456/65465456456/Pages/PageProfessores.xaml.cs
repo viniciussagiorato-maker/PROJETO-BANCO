@@ -218,6 +218,42 @@ namespace _65465456456.Pages
             txt.SelectionStart = txt.Text.Length;
 
             alterandoCpf = false;
+
+
         }
+        private void exclupro(object sender, RoutedEventArgs e)
+        {
+            Button btn = sender as Button;
+            DataRowView linha = btn.DataContext as DataRowView;
+
+            // Usando o Id_prof para garantir exclusão precisa
+            int idProf = Convert.ToInt32(linha["Id_prof"]);
+
+            string conexaoString = "Server=localhost;Database=escola;Uid=root;Pwd=123456789;";
+
+            using (MySqlConnection conexao = new MySqlConnection(conexaoString))
+            {
+                try
+                {
+                    conexao.Open();
+
+                    string sql = "DELETE FROM professores WHERE Id_prof = @idProf";
+
+                    MySqlCommand cmd = new MySqlCommand(sql, conexao);
+                    cmd.Parameters.AddWithValue("@idProf", idProf);
+
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Professor excluído com sucesso!");
+
+                    datagridpro1(); // recarrega o grid
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro: " + ex.Message);
+                }
+            }
+        }
+
     }
 }
