@@ -137,6 +137,8 @@ namespace _65465456456.Pages
             DataGridnotas.ItemsSource = listaNotas;
         }
 
+
+
         private void pesquisaraluno(object sender, TextChangedEventArgs e)
         {
             if (!string.IsNullOrEmpty(Buscanota.Text))
