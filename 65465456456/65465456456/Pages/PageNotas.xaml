@@ -129,7 +129,7 @@
                     <TextBox x:Name="Buscanota" Width="650" Height="40" HorizontalAlignment="Left" TextChanged="pesquisaraluno" />
                 </DockPanel>
 
-                <DataGrid x:Name="DataGridnotas" Height="350" AutoGenerateColumns="False" RowHeight="50">
+                <DataGrid x:Name="DataGridnotas" Height="350" AutoGenerateColumns="False" RowHeight="50" HeadersVisibility="Column" RowHeaderWidth="0" CanUserAddRows="False">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Aluno" Binding="{Binding Nome}" Width="220"/>
                         <DataGridTextColumn Header="Mat" Binding="{Binding Matematica}" Width="70"/>
@@ -139,7 +139,7 @@
                         <DataGridTextColumn Header="Geo" Binding="{Binding Geografia}" Width="70"/>
                         <DataGridTextColumn Header="Hist" Binding="{Binding Historia}" Width="70"/>
                         <DataGridTextColumn Header="Média" Binding="{Binding Media}" Width="70"/>
-                        <DataGridTextColumn Header="Status"  Width="70" Binding="{Binding status}"/>
+                        <DataGridTextColumn Header="Status" Width="*" Binding="{Binding status}"/>
 
                         <DataGridTemplateColumn Header="Editar"
     Width="80">
@@ -149,13 +149,13 @@
                                 <DataTemplate>
 
                                     <Button Content="✏"
-Width="35"
-Height="30"
-Background="#3B82F6"
-Foreground="White"
-FontWeight="Bold" Click="exclunota"
-/>
-
+                                                        Width="35"
+                                                        Height="30"
+                                                        Background="#3B82F6"
+                                                        Foreground="White"
+                                                        FontWeight="Bold" Click="exclunota" DataContext="{Binding}"
+                                                        />
+        
                                 </DataTemplate>
 
                             </DataGridTemplateColumn.CellTemplate>
@@ -165,19 +165,19 @@ FontWeight="Bold" Click="exclunota"
                         <!-- EXCLUIR -->
 
                         <DataGridTemplateColumn Header="Excluir"
-    Width="80">
+                                             Width="80">
 
                             <DataGridTemplateColumn.CellTemplate>
 
                                 <DataTemplate>
 
                                     <Button Content="🗑"
-Width="35"
-Height="30"
-Background="#EF4444"
-Foreground="White"
-FontWeight="Bold" Click="exclunota"
-/>
+                                            Width="35"
+                                            Height="30"
+                                            Background="#EF4444"
+                                            Foreground="White"
+                                            FontWeight="Bold" Click="exclunota" DataContext="{Binding}"
+                                            />
 
                                 </DataTemplate>
 

@@ -97,17 +97,9 @@
 
                                 <TextBlock x:Name="aluturma" Text="Turma"/>
 
-                                <ComboBox x:Name="cmbTurma" Height="35">
-                                    <ComboBoxItem Content="201"/>
-                                    <ComboBoxItem Content="202"/>
-                                    <ComboBoxItem Content="203"/>
-                                    <ComboBoxItem Content="301"/>
-                                    <ComboBoxItem Content="302"/>
-                                    <ComboBoxItem Content="303"/>
-
-
-
-                                </ComboBox>
+                                <ComboBox x:Name="cmbTurma" Height="35"
+                                      DisplayMemberPath="Nome_turma"
+                                      SelectedValuePath="Nome_turma"/>
 
                             </StackPanel>
 

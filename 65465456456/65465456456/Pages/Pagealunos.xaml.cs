@@ -25,9 +25,37 @@ namespace _65465456456.Pages
         {
             InitializeComponent();
 
+            carregarTurmas();
             datagridalu();
            
 
+        }
+
+        private void carregarTurmas()
+        {
+            string conexaoString =
+                "Server=localhost;Database=escola;Uid=root;Pwd=123456789;";
+
+            using (MySqlConnection conexao = new MySqlConnection(conexaoString))
+            {
+                try
+                {
+                    conexao.Open();
+
+                    string sql = "SELECT Id_turma, Nome_turma FROM turmas ORDER BY Nome_turma";
+
+                    MySqlDataAdapter da = new MySqlDataAdapter(sql, conexao);
+
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    cmbTurma.ItemsSource = dt.DefaultView;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao carregar turmas: " + ex.Message);
+                }
+            }
         }
 
         private void btnCadastrar_Click(object sender, RoutedEventArgs e)
@@ -36,7 +64,7 @@ namespace _65465456456.Pages
             string cpf = aluCPF.Text;
             string email = aluemail.Text;
             string senha = alusenha.Password;
-            string turma = cmbTurma.SelectionBoxItem.ToString();
+            string turma = cmbTurma.SelectedValue?.ToString();
             int idade = int.Parse(aluidade.Text);
 
 
@@ -45,7 +73,8 @@ namespace _65465456456.Pages
             if (string.IsNullOrWhiteSpace(nome) ||
                  string.IsNullOrWhiteSpace(cpf) ||
                  string.IsNullOrWhiteSpace(email) ||
-                string.IsNullOrWhiteSpace(senha)
+                string.IsNullOrWhiteSpace(senha) ||
+                string.IsNullOrWhiteSpace(turma)
                 )
             {
                 MessageBox.Show("Preencha todos os campos.");
